@@ -7,21 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="lblDepth" Content="-" HorizontalAlignment="Left" Margin="161,10,0,0" VerticalAlignment="Top" FontSize="50"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="348,373,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label x:Name="lblDepth" HorizontalAlignment="Left" Margin="156,10,0,0" VerticalAlignment="Top" FontSize="50" Content="{Binding zPosition, StringFormat={}{0:0.00}M}" Height="77" Width="208"/>
         <Label Content="Z-Pos:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="50"/>
         <Label Content="Velocity:" HorizontalAlignment="Left" Margin="369,10,0,0" VerticalAlignment="Top" FontSize="50"/>
-        <Label x:Name="lblVelocity" Content="-" HorizontalAlignment="Left" Margin="566,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.578,-0.974" FontSize="50"/>
-        <Slider x:Name="sldrVelocity" HorizontalAlignment="Left" Margin="644,92,0,0" VerticalAlignment="Top" Orientation="Vertical" Height="300" Width="22" Minimum="-1" Maximum="1">
-            <Slider.Effect>
-                <DropShadowEffect/>
-            </Slider.Effect>
-        </Slider>
-        <Slider x:Name="sldrPosition" HorizontalAlignment="Left" Margin="115,92,0,0" VerticalAlignment="Top" Minimum="1" Maximum="3" Height="300" IsDirectionReversed="True" Orientation="Vertical">
-            <Slider.Effect>
-                <DropShadowEffect/>
-            </Slider.Effect>
-        </Slider>
-
+        <Label x:Name="lblVelocity" HorizontalAlignment="Left" Margin="567,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.578,-0.974" FontSize="50" Content="{Binding velocity}" Height="77" Width="215"/>
+        <Slider x:Name="sldrVelocity" HorizontalAlignment="Left" Margin="644,92,0,0" VerticalAlignment="Top" Orientation="Vertical" Height="300" Width="22" Minimum="-1" Maximum="1" Value="{Binding velocity}"/>
+        <Slider x:Name="sldrPosition" HorizontalAlignment="Left" Margin="115,92,0,0" VerticalAlignment="Top" Minimum="1" Maximum="3" Height="300" IsDirectionReversed="True" Orientation="Vertical" Value="{Binding zPosition}"/>
     </Grid>
 </Window>
