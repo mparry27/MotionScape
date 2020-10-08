@@ -20,7 +20,7 @@ namespace KinectMathGames
         private double upperRange;
         private double lowerRange;
         private int score = 0;
-        private double skeleton;
+        private double skeletonCoord;
 
         public PositionLogic()
         {
@@ -41,7 +41,7 @@ namespace KinectMathGames
                 TimeStart();
                 counter = 5;
 
-                if(skeleton > lowerRange && skeleton < upperRange)
+                if(skeletonCoord > lowerRange && skeletonCoord < upperRange)
                 {
                     score++;
                 }
