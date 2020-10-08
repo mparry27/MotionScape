@@ -56,7 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Gui\Graph.xaml">
+    <Page Include="Gui\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,6 +71,9 @@
     <Compile Include="Domain\Kinect.cs" />
     <Compile Include="Gui\Graph.xaml.cs">
       <DependentUpon>Graph.xaml</DependentUpon>
+    </Comiple>
+    <Compile Include="Gui\PositionWindow.xaml.cs">
+      <DependentUpon>PositionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gui\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -108,9 +111,7 @@
     <Folder Include="Gui\Models\" />
     <Folder Include="Gui\ViewModels\" />
     <Folder Include="Gui\Views\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Gui\images\Grid.jpg" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
