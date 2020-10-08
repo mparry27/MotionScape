@@ -27,8 +27,6 @@ namespace KinectMathGames
         public MainWindow()
         {
             InitializeComponent();
-            Kinect kinect = new Kinect();
-            this.DataContext = kinect;
-        }     
+        }
     }
 }

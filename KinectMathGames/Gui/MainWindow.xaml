@@ -5,13 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinectMathGames"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Label x:Name="lblDepth" HorizontalAlignment="Left" Margin="156,10,0,0" VerticalAlignment="Top" FontSize="50" Content="{Binding zPosition, StringFormat={}{0:0.00}M}" Height="77" Width="208"/>
-        <Label Content="Z-Pos:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="50"/>
-        <Label Content="Velocity:" HorizontalAlignment="Left" Margin="369,10,0,0" VerticalAlignment="Top" FontSize="50"/>
-        <Label x:Name="lblVelocity" HorizontalAlignment="Left" Margin="567,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.578,-0.974" FontSize="50" Content="{Binding velocity}" Height="77" Width="215"/>
-        <Slider x:Name="sldrVelocity" HorizontalAlignment="Left" Margin="644,92,0,0" VerticalAlignment="Top" Orientation="Vertical" Height="300" Width="22" Minimum="-1" Maximum="1" Value="{Binding velocity}"/>
-        <Slider x:Name="sldrPosition" HorizontalAlignment="Left" Margin="115,92,0,0" VerticalAlignment="Top" Minimum="1" Maximum="3" Height="300" IsDirectionReversed="True" Orientation="Vertical" Value="{Binding zPosition}"/>
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinWidth="650" MinHeight="400">
+    <Grid Background="#FF121212">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Background="#0CFFFFFF" Grid.Row="0" Grid.Column="0" Margin="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="14" Grid.RowSpan="8" Content="MotionScape" FontWeight="Bold" FontSize="96" HorizontalAlignment="Center" Background="#00000000" Foreground="#DDFFFFFF" VerticalAlignment="Center" FontFamily="Microsoft YaHei UI Light"/>
+            <Button Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="VELOCITY" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Margin="8,0" Foreground="#DD000000" BorderBrush="#00707070">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="POSITION" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Foreground="#DD000000" Margin="8,0" BorderBrush="#00707070">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Grid.Row="9" Grid.Column="10" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="GRAPH" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Margin="8,0" Foreground="#DD000000" BorderBrush="#00707070">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

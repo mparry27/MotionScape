@@ -14,8 +14,12 @@ namespace KinectMathGames.Domain
         private long prevTimeStamp = 0;
         private float zpos = 0;
         private float prevZPos = 0;
-        private float vel = 0;
-        private float prevVel = 0;
+        private float xpos = 0;
+        private float prevXPos = 0;
+        private float zVel = 0;
+        private float prevZVel = 0;
+        private float xVel = 0;
+        private float prevXVel = 0;
         private float velGate = 0.02F;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -39,15 +43,27 @@ namespace KinectMathGames.Domain
                 NotifyPropertyChanged("zPosition"); 
             }
         }
+        public float xPosition
+        {
+            get
+            {
+                return xpos;
+            }
+            set
+            {
+                xpos = value;
+                NotifyPropertyChanged("xPosition");
+            }
+        }
         public float velocity
         {
             get
             {
-                return vel;
+                return zVel;
             }
             set
             {
-                vel = value;
+                zVel = value;
                 NotifyPropertyChanged("velocity");
             }
         }
@@ -86,16 +102,21 @@ namespace KinectMathGames.Domain
                 if (skel.TrackingState == SkeletonTrackingState.Tracked)
                 {
                     zpos = skel.Joints[JointType.Spine].Position.Z;
-                    vel = (zpos - prevZPos) * (1000 / (timeStamp - prevTimeStamp)) * -1;
-                    if ((vel - prevVel) > velGate)
-                        vel = prevVel + velGate;
-                    if ((vel - prevVel) < (-1 * velGate))
-                        vel = prevVel + (-1 * velGate);
-
+                    xpos = skel.Joints[JointType.Spine].Position.X;
+                    long timeElapsed = (timeStamp - prevTimeStamp);
+                    if (timeElapsed <= 0)
+                        timeElapsed = 1;
+                    zVel = (zpos - prevZPos) * (1000 / timeElapsed) * -1;
+                    if ((zVel - prevZVel) > velGate)
+                        zVel = prevZVel + velGate;
+                    if ((zVel - prevZVel) < (-1 * velGate))
+                        zVel = prevZVel + (-1 * velGate);
                     prevZPos = zpos;
                     zPosition = zpos;
-                    prevVel = vel;
-                    velocity = vel;
+                    prevXPos = xpos;
+                    xPosition = xpos;
+                    prevZVel = zVel;
+                    velocity = zVel;
                     prevTimeStamp = timeStamp;
                 }
             }
