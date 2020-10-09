@@ -9,9 +9,9 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="../Images/gridBackground.png" Stretch="Uniform"/>
+            <ImageBrush ImageSource="../Images/Graph.jpg" Stretch="Uniform"/>
         </Grid.Background>
-        <Slider x:Name="sldrPosition" HorizontalAlignment="Left" Margin="389,10,0,0" VerticalAlignment="Top" Minimum="1" Maximum="3" Height="400" IsDirectionReversed="True" Orientation="Vertical" Value="{Binding Position}"/>
+        <Slider x:Name="sldrPosition" HorizontalAlignment="Left" Margin="381,40,0,0" VerticalAlignment="Top" Minimum="1" Maximum="3" Height="355" IsDirectionReversed="True" Orientation="Vertical" Value="{Binding Position}"/>
     </Grid>
 
 </Window>

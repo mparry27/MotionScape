@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinectMathGames.Gui"
         mc:Ignorable="d"
-        Title="Graph" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=MyCanvas}">
-    <Grid>
-        <Image Source="images/Grid.jpg"></Image>
+        Title="Graph" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinWidth="650" MinHeight="400">
+    <Grid Background="White">
+        <Image Source="../Images/Graph.jpg"/>
         <Canvas Name="MyCanvas" Focusable="True" >
-            <Ellipse Name="rec1" Width="20" Height="20" Margin="0" Canvas.Left="380" Canvas.Top="200">
+            <Ellipse Name="rec1" Width="20" Height="20" Margin="0" Canvas.Left="380" Canvas.Top="208">
                 <Ellipse.Fill>
                     <SolidColorBrush Color="#7FE22B2B" />
                 </Ellipse.Fill>

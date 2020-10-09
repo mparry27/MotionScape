@@ -55,7 +55,7 @@ namespace KinectMathGames.Domain
                 NotifyPropertyChanged("xPosition");
             }
         }
-        public float velocity
+        public float zVelocity
         {
             get
             {
@@ -64,7 +64,19 @@ namespace KinectMathGames.Domain
             set
             {
                 zVel = value;
-                NotifyPropertyChanged("velocity");
+                NotifyPropertyChanged("zVelocity");
+            }
+        }
+        public float xVelocity
+        {
+            get
+            {
+                return xVel;
+            }
+            set
+            {
+                xVel = value;
+                NotifyPropertyChanged("xVelocity");
             }
         }
 
@@ -111,12 +123,19 @@ namespace KinectMathGames.Domain
                         zVel = prevZVel + velGate;
                     if ((zVel - prevZVel) < (-1 * velGate))
                         zVel = prevZVel + (-1 * velGate);
+                    xVel = (xpos - prevXPos) * (1000 / timeElapsed) * -1;
+                    if ((xVel - prevXVel) > velGate)
+                        xVel = prevXVel + velGate;
+                    if ((xVel - prevXVel) < (-1 * velGate))
+                        xVel = prevXVel + (-1 * velGate);
                     prevZPos = zpos;
                     zPosition = zpos;
                     prevXPos = xpos;
                     xPosition = xpos;
                     prevZVel = zVel;
-                    velocity = zVel;
+                    zVelocity = zVel;
+                    prevXVel = xVel;
+                    xVelocity = xVel;
                     prevTimeStamp = timeStamp;
                 }
             }
