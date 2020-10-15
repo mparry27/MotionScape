@@ -11,7 +11,15 @@
         <Grid.Background>
             <ImageBrush ImageSource="../Images/Graph.jpg" Stretch="Uniform"/>
         </Grid.Background>
-        <Slider x:Name="sldrPosition" HorizontalAlignment="Left" Margin="381,40,0,0" VerticalAlignment="Top" Minimum="1" Maximum="3" Height="355" IsDirectionReversed="True" Orientation="Vertical" Value="{Binding Position}"/>
+        <Canvas Name="MyCanvas" Focusable="True" >
+            <Ellipse Name="rec1" Width="20" Height="20" Margin="0" Canvas.Left="380" Canvas.Top="208">
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="#7FE22B2B" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
+            <Label Name="Position" FontSize="30" FontWeight="ExtraBold" Content="Position Game"/>
+        </Canvas>
     </Grid>
 
 </Window>

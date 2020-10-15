@@ -24,11 +24,25 @@ namespace KinectMathGames
     /// </summary>
     public partial class PositionWindow : Window
     {
+        private Kinect kinect = new Kinect();
+        private double scale = 200;
+        private int score = 0;
         public PositionWindow()
         {
             InitializeComponent();
-            Kinect kinect = new Kinect();
+            
             this.DataContext = kinect;
-        }     
+        }
+        
+        public void MoveDot()
+        {
+            Canvas.SetTop(rec1, -200 + (kinect.zPosition * scale));
+        }
+
+        public void UpdateScore()
+        {
+            score += 1;
+            txtscore.Content = "Score: " + score;
+        }
     }
 }
