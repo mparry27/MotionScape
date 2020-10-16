@@ -81,7 +81,7 @@
     <Compile Include="Gui\VelocityWindow.xaml.cs">
       <DependentUpon>VelocityWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Gui\Graph.xaml">
+    <Page Include="Gui\GraphWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -98,8 +98,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Domain\Kinect.cs" />
-    <Compile Include="Gui\Graph.xaml.cs">
-      <DependentUpon>Graph.xaml</DependentUpon>
+    <Compile Include="Gui\GraphWindow.xaml.cs">
+      <DependentUpon>GraphWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gui\PositionWindow.xaml.cs">
       <DependentUpon>PositionWindow.xaml</DependentUpon>

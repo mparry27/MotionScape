@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using KinectMathGames.Domain;
-
+using KinectMathGames.Gui;
 
 namespace KinectMathGames
 {
@@ -27,6 +27,27 @@ namespace KinectMathGames
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void PositionGameClick(object sender, RoutedEventArgs e)
+        {
+            PositionWindow positionWindow = new PositionWindow();
+            positionWindow.Show();
+            this.Close();
+        }
+
+        private void VelocityGameClicked(object sender, RoutedEventArgs e)
+        {
+            VelocityWindow velocityWindow = new VelocityWindow();
+            velocityWindow.Show();
+            this.Close();
+        }
+
+        private void GraphGameClicked(object sender, RoutedEventArgs e)
+        {
+            GraphWindow graphWindow = new GraphWindow();
+            graphWindow.Show();
+            this.Close();
         }
     }
 }

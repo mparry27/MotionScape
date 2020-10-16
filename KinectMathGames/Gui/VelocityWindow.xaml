@@ -1,4 +1,4 @@
-﻿<Window x:Class="KinectMathGames.Velocity"
+﻿<Window x:Class="KinectMathGames.VelocityWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -25,7 +25,7 @@
             </Slider>
 
             <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
-            <Label Name="Velocity" FontSize="30" FontWeight="ExtraBold" Content="Velocity Game"/>
+            <Label Name="VelocityText" FontSize="30" FontWeight="ExtraBold" Content="Velocity Game"/>
 
         </Canvas>
 

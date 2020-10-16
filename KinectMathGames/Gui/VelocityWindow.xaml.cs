@@ -19,7 +19,7 @@ namespace KinectMathGames
     /// <summary>
     /// Interaction logic for velocity.xaml
     /// </summary>
-    public partial class Velocity : Window
+    public partial class VelocityWindow : Window
     {
         //declare all variables
         DispatcherTimer gameTimer = new DispatcherTimer();
@@ -29,7 +29,7 @@ namespace KinectMathGames
         Rect VBox; //store position of the velocity from GUI
         Rect GateBox;
 
-        public Velocity()
+        public VelocityWindow()
         {
             InitializeComponent();
 

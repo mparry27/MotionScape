@@ -51,17 +51,17 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="16" Grid.RowSpan="8" Content="MotionScape" FontWeight="Bold" FontSize="96" HorizontalAlignment="Center" Background="#00000000" Foreground="#DDFFFFFF" VerticalAlignment="Center" FontFamily="Microsoft YaHei UI Light" Margin="0,10,2,10" Width="580"/>
-            <Button Grid.Row="10" Grid.Column="6" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="VELOCITY" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Margin="8,0" Foreground="#DD000000" BorderBrush="#00707070">
+            <Button Grid.Row="10" Grid.Column="6" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="VELOCITY" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Margin="8,0" Foreground="#DD000000" BorderBrush="#00707070" Click="VelocityGameClicked">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="POSITION" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Foreground="#DD000000" Margin="8,0" BorderBrush="#00707070">
+            <Button Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="POSITION" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Foreground="#DD000000" Margin="8,0" BorderBrush="#00707070" Click="PositionGameClick">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button Grid.Row="10" Grid.Column="10" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="GRAPH" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Margin="8,0" Foreground="#DD000000" BorderBrush="#00707070">
+            <Button Grid.Row="10" Grid.Column="10" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="GRAPH" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Margin="8,0" Foreground="#DD000000" BorderBrush="#00707070" Click="GraphGameClicked">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
