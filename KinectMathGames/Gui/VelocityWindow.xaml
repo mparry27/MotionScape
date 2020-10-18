@@ -7,22 +7,37 @@
         mc:Ignorable="d"
         Title="Velocity Game" Height="450" Width="800">
     <Grid>
-        <Canvas x:Name="MyCanVas" Focusable="True" Background="AliceBlue" RenderTransformOrigin="0.175,0.488" Margin="0,10,0.333,-10.333">
+        <Canvas x:Name="MyCanVas" Focusable="True" Background="AliceBlue" RenderTransformOrigin="0.493,0.522" Margin="0,10,0.333,-10.333">
 
-            <Image Height="25" Width="50" Source="Images/circle.png" Tag="obs1" Canvas.Left="200" Canvas.Top="223" />
-            <Image Height="24" Width="50" Source="Images/circle.png" Tag="obs1" Canvas.Left="200" Canvas.Top="158" RenderTransformOrigin="0.513,1.867" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs1" Canvas.Left="450" Canvas.Top="229" RenderTransformOrigin="1.517,0.432" />
 
-            <Image Height="25" Width="50" Source="Images/circle.png" Tag="obs2" Canvas.Left="500" Canvas.Top="330" RenderTransformOrigin="0.667,-0.27" />
-            <Image Height="25" Width="50" Source="Images/circle.png" Tag="obs2" Canvas.Left="500" Canvas.Top="268" RenderTransformOrigin="0.54,1.733" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs2" Canvas.Left="650" Canvas.Top="229" RenderTransformOrigin="0.667,-0.27" />
 
-            <Image Height="25" Width="50" Source="Images/circle.png" Tag="obs3" Canvas.Left="800" Canvas.Top="132" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="24" Width="50" Source="Images/circle.png" Tag="obs3" Canvas.Left="800" Canvas.Top="55" RenderTransformOrigin="-12.22,4.028" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs3" Canvas.Left="850" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs4" Canvas.Left="1050" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs5" Canvas.Left="1250" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs6" Canvas.Left="1450" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs7" Canvas.Left="1650" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs8" Canvas.Left="1850" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs9" Canvas.Left="2050" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs10" Canvas.Left="2250" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs11" Canvas.Left="2450" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs12" Canvas.Left="2650" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs13" Canvas.Left="2850" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs14" Canvas.Left="3050" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs15" Canvas.Left="3250" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs16" Canvas.Left="3450" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs17" Canvas.Left="3650" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs18" Canvas.Left="3850" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs19" Canvas.Left="4050" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
 
-            <Slider x:Name="sldrVelocity" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Vertical" Height="300" Width="22" Minimum="-1" Maximum="1"  Canvas.Left="43" Canvas.Top="55" RenderTransformOrigin="0.432,0.497">
-                <Slider.Effect>
-                    <DropShadowEffect/>
-                </Slider.Effect>
-            </Slider>
+            <Canvas Name="MyCanvas" Focusable="True" >
+                <Ellipse Name="cursor" Width="20" Height="20" Margin="0" Canvas.Left="380" Canvas.Top="208">
+                    <Ellipse.Fill>
+                        <SolidColorBrush Color="black"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Canvas>
 
             <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
             <Label Name="VelocityText" FontSize="30" FontWeight="ExtraBold" Content="Velocity Game"/>
