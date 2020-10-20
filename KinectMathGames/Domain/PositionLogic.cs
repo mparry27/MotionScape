@@ -21,7 +21,7 @@ namespace KinectMathGames
         private double lowerRange;
         private int score = 0;
         private double skeletonCoord;
-        PositionWindow dotObject = new PositionWindow();
+        
 
         public PositionLogic()
         {
@@ -44,7 +44,6 @@ namespace KinectMathGames
 
                 if(skeletonCoord > lowerRange && skeletonCoord < upperRange)
                 {
-                    dotObject.UpdateScore();
                     score++;
                 }
                 else
@@ -57,15 +56,14 @@ namespace KinectMathGames
         private void TimeStart()
         {
             timer1 = new System.Timers.Timer(1000);
-            timer1.Elapsed += timer_Tick;
+            timer1.Elapsed += timer_Ticker;
             timer1.AutoReset = true;
             timer1.Enabled = true;
         }
 
-        private void timer_Tick(object sender, ElapsedEventArgs e)
+        private void timer_Ticker(object sender, ElapsedEventArgs e)
         {
             counter--;
-            dotObject.MoveDot();
             if (counter == 0)
             {
                 timer1.Stop();

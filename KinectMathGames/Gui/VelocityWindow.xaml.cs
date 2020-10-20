@@ -261,7 +261,7 @@ namespace KinectMathGames
             gameTimer.Stop();
             gameOver = true;
 
-            txtscore.Content += "Conglatulations !!! \nYou WIN !!!";
+            txtscore.Content += "Congratulations !!! \nYou WIN !!!";
         }
     }
 }
