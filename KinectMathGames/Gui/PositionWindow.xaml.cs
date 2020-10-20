@@ -27,23 +27,14 @@ namespace KinectMathGames
     public partial class PositionWindow : Window
     {
         private Kinect kinect = new Kinect();
-        private double scale = 200;
+        private static double scale = 200;
         private int score = 0;
-        PositionLogic pLogic;
-        Rect gateBox;
+        private PositionLogic pLogic = new PositionLogic();
+        private static int xCoord = 380;
+        private static int startXCoord = 850;
+        private double retDouble;
+        private int gateSpeed = 5;
 
-        private int counter = 5;
-        private static double MAX = 11.00;
-        private static double MIN = 4.00;
-        private static double RANGEBUFFER = 1;
-        private double upperRange;
-        private double lowerRange;
-        private double skeletonCoord;
-        private Timer timer1;
-
-        bool alive = true;
-        Random r = new Random();
-        double randomPoint;
         public PositionWindow()
         {
             InitializeComponent();
@@ -54,36 +45,45 @@ namespace KinectMathGames
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Canvas.SetTop(cursor, -200 + (kinect.zPosition * scale));
+            //Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
 
-            //Timer for about 5 seconds (can change later)
-            //Once timer hits 0, check game logic
-            
-        }
+            foreach (var x in MyCanvas.Children.OfType<Image>()) {
+                if ((string)x.Tag != "cursor")
+                {
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - gateSpeed);
+                    if (Canvas.GetLeft(x) == xCoord)
+                    {
+                        if (pLogic.isInGate(getCursorTop(), Canvas.GetTop(x)))
+                        {
+                            score++;
+                            txtscore.Content = "Score: " + score;
+                            if(score % 5 == 0)
+                            {
+                                gateSpeed += 5;
+                            }
+                        }
+                    }
 
-        private void TimeStart()
-        {
-            timer1 = new System.Timers.Timer(1000);
-            timer1.Elapsed += timer_Ticker;
-            timer1.AutoReset = true;
-            timer1.Enabled = true;
-        }
-
-        private void timer_Ticker(object sender, ElapsedEventArgs e)
-        {
-            counter--;
-            if (counter == 0)
-            {
-                timer1.Stop();
+                    if (Canvas.GetLeft(x) <= -50)
+                    {
+                        Canvas.SetLeft(x, startXCoord);
+                    }
+                }                
             }
+
         }
 
-
-
-        public void UpdateScore()
+        public double getCursorTop()
         {
-            score += 1;
-            txtscore.Content = "Score: " + score;
+            foreach (var x in MyCanvas.Children.OfType<Ellipse>())
+            {
+                if ((string)x.Tag == "cursor")
+                {
+                    retDouble = Canvas.GetTop(x);
+                    break;
+                }
+            }
+            return retDouble;
         }
 
     }

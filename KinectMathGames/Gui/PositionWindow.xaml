@@ -10,17 +10,26 @@
     <Grid>
         <Image Source="../Images/Graph.jpg"/>
         <Canvas Name="MyCanvas" Focusable="True" >
-            <Ellipse Name="cursor" Width="20" Height="20" Margin="0" Canvas.Left="380" Canvas.Top="208">
+            <Ellipse Name="cursor" Tag="cursor" Width="20" Height="20" Margin="0" Canvas.Left="380" Canvas.Top="208">
                 <Ellipse.Fill>
                     <SolidColorBrush Color="#7FE22B2B" />
                 </Ellipse.Fill>
             </Ellipse>
-        </Canvas>
-
-        <Canvas>
-            <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="Gate" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="Gate" Canvas.Left="1150" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="Gate" Canvas.Left="1450" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
+            <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score: 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
             <Label Name="Position" FontSize="30" FontWeight="ExtraBold" Content="Position Game"/>
         </Canvas>
+        <!--
+        
+        
+        
+        <Canvas Name="GatesAndScore">
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="Gate" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
+            <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
+            <Label Name="Position" FontSize="30" FontWeight="ExtraBold" Content="Position Game"/>
+        </Canvas>-->
 
     </Grid>
 
