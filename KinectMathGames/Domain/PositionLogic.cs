@@ -43,6 +43,15 @@ namespace KinectMathGames
             randomPoint = r.NextDouble() * (MAX - MIN) + MIN;
             return randomPoint;
         }
+
+        public double getMAX()
+        {
+            return MAX;
+        }
+        public double getMIN()
+        {
+            return MIN;
+        }
         
     }
 }

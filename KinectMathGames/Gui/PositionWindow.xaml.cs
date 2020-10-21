@@ -42,14 +42,20 @@ namespace KinectMathGames
             dispatcherTimer.Tick += Timer_Tick;
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(20);
             dispatcherTimer.Start();
+            
+            
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
+            Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
 
             foreach (var x in MyCanvas.Children.OfType<Image>()) {
                 if ((string)x.Tag != "cursor")
                 {
+                    if (Canvas.GetLeft(x) >= 845)
+                    {
+                        Canvas.SetTop(x, pLogic.randomYCoord());
+                    }
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - gateSpeed);
                     if (Canvas.GetLeft(x) == xCoord)
                     {
