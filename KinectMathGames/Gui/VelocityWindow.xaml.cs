@@ -26,11 +26,13 @@ namespace KinectMathGames
         DispatcherTimer gameTimer = new DispatcherTimer();
         double score;
         bool gameOver;
+
         double scale = 200;
         Kinect sensor = new Kinect();
 
         Rect VBox; //store position of the velocity from GUI
         Rect GateBox;
+        
 
         public VelocityWindow()
         {
@@ -38,25 +40,27 @@ namespace KinectMathGames
 
             gameTimer.Tick += MainEvenTimer;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+            gameTimer.Start();
             StartGame();
         }
 
         private void MainEvenTimer(object sender, EventArgs e)
         {
-            Canvas.SetTop(cursor, -200 + (sensor.zPosition * scale)); // get the velocity for user
+            Canvas.SetTop(rec1, -200 + (sensor.zPosition * scale)); // get the velocity for user
 
             txtscore.Content = "Score: " + score;
 
-            VBox = new Rect(Canvas.GetLeft(cursor), Canvas.GetTop(cursor), cursor.Width, cursor.Height);
+            VBox = new Rect(Canvas.GetLeft(rec1), Canvas.GetTop(rec1), rec1.Width, rec1.Height);
 
-            Canvas.SetTop(cursor, Canvas.GetTop(cursor));
+
+            Canvas.SetTop(rec1, Canvas.GetTop(rec1));
 
             if (score > 16)
             {
                 EndGame();
             }
 
-            foreach (var x in MyCanVas.Children.OfType<Image>())
+            foreach (var x in MyCanvas.Children.OfType<Image>())
             {
                 if ((string)x.Tag == "obs1" || (string)x.Tag == "obs2" || (string)x.Tag == "obs3")
 
@@ -85,14 +89,14 @@ namespace KinectMathGames
         private void StartGame()
         {
 
-            MyCanVas.Focus();
+            MyCanvas.Focus();
 
             //int temp = 300;
 
             score = 0;
 
             gameOver = false;
-            Canvas.SetTop(cursor, 78);
+            Canvas.SetTop(rec1, 78);
 
             Random rand = new Random(); // generate random number of vertical position of gate
             int y1 = rand.Next(130, 330);
@@ -115,7 +119,7 @@ namespace KinectMathGames
             int y18 = rand.Next(130, 330);
             int y19 = rand.Next(130, 330);
 
-            foreach (var x in MyCanVas.Children.OfType<Image>()) // all images move to the left
+            foreach (var x in MyCanvas.Children.OfType<Image>()) // all images move to the left
             {
 
                 if ((string)x.Tag == "obs1")
