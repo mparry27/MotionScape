@@ -21,24 +21,36 @@ namespace KinectMathGames.Gui
     /// </summary>
     public partial class GraphWindow : Window
     {
-        double scale = 200;
+        double scale = 50;
         Kinect sensor = new Kinect();
         public GraphWindow()
         {
             InitializeComponent();
 
-            
+            //Set up squares for grid
+            for(int i = 0; i <= 100; i+=10)
+            {
+                Line line = new Line() { Stroke = Brushes.Gray, StrokeThickness = 0.5, X1 = i, X2=i, Y1 = 0, Y2 = 100, SnapsToDevicePixels=true};
+                MyCanvas.Children.Add(line);
+                Line line2 = new Line() { Stroke = Brushes.Gray, StrokeThickness = 0.5, X1 = 0, X2 = 100, Y1 = i, Y2 = i };
+                MyCanvas.Children.Add(line2);
+            }
 
             DispatcherTimer dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += Timer_Tick;
-            dispatcherTimer.Interval = TimeSpan.FromMilliseconds(20);
+
+            dispatcherTimer.Interval = TimeSpan.FromMilliseconds(10);
             dispatcherTimer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Canvas.SetTop(rec1, -200 + (sensor.zPosition * scale));
-            Canvas.SetLeft(rec1, 350 + (sensor.xPosition * scale));
+            double playerYPos = -75 + (sensor.zPosition * scale);
+            double playerXPos = 50 + (sensor.xPosition * scale);
+            Canvas.SetTop(rec1, playerYPos);
+            Canvas.SetLeft(rec1, playerXPos);
+            ypos.Content = 5-Math.Round(playerYPos/10);
+            xpos.Content = Math.Round(playerXPos/10)-5;
         }
     }
 }
