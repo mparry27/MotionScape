@@ -33,7 +33,7 @@ namespace KinectMathGames
         private static int xCoord = 380;
         private static int startXCoord = 850;
         private double retDouble;
-        private int gateSpeed = 5;
+        private int gateSpeed = 2;
 
         public PositionWindow()
         {
@@ -65,7 +65,7 @@ namespace KinectMathGames
                             txtscore.Content = "Score: " + score;
                             if(score % 5 == 0)
                             {
-                                gateSpeed += 5;
+                                gateSpeed += 2;
                             }
                         }
                     }
