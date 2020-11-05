@@ -23,6 +23,9 @@ namespace KinectMathGames.Gui
     {
         double scale = 50;
         Kinect sensor = new Kinect();
+        Ellipse point = new Ellipse() { Name = "Point", Width = 5, Height = 5, Fill = Brushes.Blue, SnapsToDevicePixels = true, Margin= new Thickness(-5,-5,-5,-5) };
+        Line slope = new Line() { Stroke = Brushes.Green, StrokeThickness = 2, SnapsToDevicePixels = true };
+        Random random = new Random();
         public GraphWindow()
         {
             InitializeComponent();
@@ -36,11 +39,22 @@ namespace KinectMathGames.Gui
                 MyCanvas.Children.Add(line2);
             }
 
+            MyCanvas.Children.Add(slope);
+            MyCanvas.Children.Add(point);
+            Generate_Point();
+            
+
             DispatcherTimer dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += Timer_Tick;
 
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(10);
             dispatcherTimer.Start();
+
+            DispatcherTimer dispatcherTimer1 = new DispatcherTimer();
+            dispatcherTimer1.Tick += Big_Tick;
+
+            dispatcherTimer1.Interval = TimeSpan.FromSeconds(20);
+            dispatcherTimer1.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -49,8 +63,50 @@ namespace KinectMathGames.Gui
             double playerXPos = 50 + (sensor.xPosition * scale);
             Canvas.SetTop(rec1, playerYPos);
             Canvas.SetLeft(rec1, playerXPos);
-            ypos.Content = 5-Math.Round(playerYPos/10);
-            xpos.Content = Math.Round(playerXPos/10)-5;
+        }
+
+        private void Big_Tick(object sender, EventArgs e)
+        {
+            Generate_Point();
+        }
+
+        private void Generate_Point()
+        {
+            double pointX = 50+random.Next(-3, 3) * 10;
+            double pointY = 50+random.Next(-3, 3) * 10;
+            double slopeRise = random.Next(-5, 5) * 10;
+            double slopeRun = random.Next(-5, 5) * 10;
+            while (slopeRun == 0)
+                slopeRun = random.Next(-5, 5) * 10;
+
+            slope.X1 = pointX;
+            slope.X2 = pointX;
+            slope.Y1 = pointY;
+            slope.Y2 = pointY;
+
+            slope.X1 += slopeRun*-10;
+            slope.Y1 += slopeRise*10;
+            slope.X2 += slopeRun*10;
+            slope.Y2 += slopeRise*-10;
+
+            pointSlopeLbl.Text = "(y ";
+            if ((5-(pointY / 10)) < 0)
+                pointSlopeLbl.Text += "- ";
+            else
+                pointSlopeLbl.Text += "+ ";
+            pointSlopeLbl.Text += Math.Abs(5-(pointY / 10)) + ") = ";
+            pointSlopeLbl.Text +=(slopeRise/10) + "/" + (slopeRun/10);
+            pointSlopeLbl.Text += "(x ";
+            if (((pointX / 10) - 5) < 0)
+                pointSlopeLbl.Text += "- ";
+            else
+                pointSlopeLbl.Text += "+ ";
+            pointSlopeLbl.Text += Math.Abs((pointX / 10) - 5) + ")";
+        }
+
+        private void Remove_Point(object sender, EventArgs e)
+        {
+
         }
     }
 }
