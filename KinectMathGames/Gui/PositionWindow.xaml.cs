@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -56,8 +57,8 @@ namespace KinectMathGames
                     {
                         Canvas.SetTop(x, pLogic.randomYCoord());
                     }
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - gateSpeed);
-                    if (Canvas.GetLeft(x) == xCoord)
+                    //Canvas.SetLeft(x, Canvas.GetLeft(x) - gateSpeed);
+                    if (Canvas.GetLeft(x) <= xCoord+2  && Canvas.GetLeft(x) >= xCoord - 2)
                     {
                         if (pLogic.isInGate(getCursorTop(), Canvas.GetTop(x)))
                         {
@@ -73,6 +74,7 @@ namespace KinectMathGames
                     if (Canvas.GetLeft(x) <= -50)
                     {
                         Canvas.SetLeft(x, startXCoord);
+                        
                     }
                 }                
             }

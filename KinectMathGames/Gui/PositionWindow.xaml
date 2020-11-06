@@ -16,32 +16,33 @@
                 </Ellipse.Fill>
             </Ellipse>
             <Image Name="img1"  Height="40" Width="50" Source="../Images/circle.png" Tag="Gate1" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img2" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate2" Canvas.Left="1150" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img3" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate3" Canvas.Left="1450" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
+            <Image Name="img2" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate2" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
+            <Image Name="img3" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate3" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
             <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score: 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
             <Label Name="Position" FontSize="30" FontWeight="ExtraBold" Content="Position Game"/>
 
-
-           <!-- <Canvas.Triggers>
+            
+            <Canvas.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard >
                         <Storyboard Storyboard.TargetName="img1" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".25"  RepeatBehavior="23:59:59" AutoReverse="False"/>
+                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15"  RepeatBehavior="23:59:59" AutoReverse="False"/>
                         </Storyboard>
                     </BeginStoryboard>
                     <BeginStoryboard >
                         <Storyboard Storyboard.TargetName="img2" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="1150" To="-50" SpeedRatio=".25"  RepeatBehavior="23:59:59" AutoReverse="False"/>
+                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:02"  RepeatBehavior="23:59:59" AutoReverse="False"/>
                         </Storyboard>
                     </BeginStoryboard>
                     <BeginStoryboard >
                         <Storyboard Storyboard.TargetName="img3" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="1450" To="-50" SpeedRatio=".25"  RepeatBehavior="23:59:59" AutoReverse="False"/>
+                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:04" RepeatBehavior="23:59:59" AutoReverse="False"/>
                         </Storyboard>
                     </BeginStoryboard>
+                    
                 </EventTrigger>
             </Canvas.Triggers>
-            -->
+            
 
 
         </Canvas>
