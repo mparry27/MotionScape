@@ -15,25 +15,10 @@
                     <SolidColorBrush Color="Black" />
                 </Ellipse.Fill>
             </Ellipse>
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs1" Canvas.Left="450" Canvas.Top="229" RenderTransformOrigin="1.517,0.432" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs2" Canvas.Left="650" Canvas.Top="229" RenderTransformOrigin="0.667,-0.27" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs3" Canvas.Left="850" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs4" Canvas.Left="1050" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs5" Canvas.Left="1250" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs6" Canvas.Left="1450" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs7" Canvas.Left="1650" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs8" Canvas.Left="1850" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs9" Canvas.Left="2050" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs10" Canvas.Left="2250" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs11" Canvas.Left="2450" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs12" Canvas.Left="2650" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs13" Canvas.Left="2850" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs14" Canvas.Left="3050" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs15" Canvas.Left="3250" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs16" Canvas.Left="3450" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs17" Canvas.Left="3650" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs18" Canvas.Left="3850" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs19" Canvas.Left="4050" Canvas.Top="229" RenderTransformOrigin="0.567,-0.373" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs1" Canvas.Left="600" Canvas.Top="200" RenderTransformOrigin="1.517,0.432" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs2" Canvas.Left="850" Canvas.Top="30" RenderTransformOrigin="0.667,-0.27" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs3" Canvas.Left="1100" Canvas.Top="350" RenderTransformOrigin="0.567,-0.373" />
+           
 
             <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
             <Label Name="VelocityText" FontSize="30" FontWeight="ExtraBold" Content="Velocity Game"/>

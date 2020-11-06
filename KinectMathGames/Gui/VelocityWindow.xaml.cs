@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,15 +27,17 @@ namespace KinectMathGames
     {
         //declare all variables
         DispatcherTimer gameTimer = new DispatcherTimer();
+        private PositionLogic pLogic = new PositionLogic();
         double score;
         bool gameOver;
+        private double retDouble;
 
         double scale = 200;
         Kinect sensor = new Kinect();
 
         Rect VBox; //store position of the velocity from GUI
         Rect GateBox;
-        
+
 
         public VelocityWindow()
         {
@@ -44,14 +49,15 @@ namespace KinectMathGames
             StartGame();
         }
 
+
+
         private void MainEvenTimer(object sender, EventArgs e)
         {
             Canvas.SetTop(rec1, -200 + (sensor.zPosition * scale)); // get the velocity for user
-
-            txtscore.Content = "Score: " + score;
-
             VBox = new Rect(Canvas.GetLeft(rec1), Canvas.GetTop(rec1), rec1.Width, rec1.Height);
 
+            Random rand = new Random(); // generate random number of vertical position of gate
+            int y1 = rand.Next(30, 350);
 
             Canvas.SetTop(rec1, Canvas.GetTop(rec1));
 
@@ -60,29 +66,26 @@ namespace KinectMathGames
                 EndGame();
             }
 
+
             foreach (var x in MyCanvas.Children.OfType<Image>())
             {
-                if ((string)x.Tag == "obs1" || (string)x.Tag == "obs2" || (string)x.Tag == "obs3")
-
-                GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                if (VBox.IntersectsWith(GateBox)) // if the Vbox hits gatebox logic
-                {
-                    score += 0;
-                }
-
-                {
-
+                if ((string)x.Tag != "cursor")
+                    GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - 4); // make gates move slow in the beginning
 
-                    if (Canvas.GetLeft(x) < -100)
-                    {
-                        Canvas.SetLeft(x, 4050);
+                if (Canvas.GetLeft(x) < -100)
+                {
+                    Canvas.SetLeft(x, 650);
+                    Canvas.SetTop(x, y1);
 
-                        score += 1;
+                    if (VBox.IntersectsWith(GateBox)) // if the Vbox hits gatebox logic then increment score
+                    {
+                        score =+ 1;
+                        txtscore.Content = "Score: " + score;
                     }
 
                 }
-                
+
             }
         }
 
@@ -91,33 +94,12 @@ namespace KinectMathGames
 
             MyCanvas.Focus();
 
-            //int temp = 300;
-
             score = 0;
 
             gameOver = false;
             Canvas.SetTop(rec1, 78);
 
-            Random rand = new Random(); // generate random number of vertical position of gate
-            int y1 = rand.Next(130, 330);
-            int y2 = rand.Next(130, 330);
-            int y3 = rand.Next(130, 330);
-            int y4 = rand.Next(130, 330);
-            int y5 = rand.Next(130, 330);
-            int y6 = rand.Next(130, 330);
-            int y7 = rand.Next(130, 330);
-            int y8 = rand.Next(130, 330);
-            int y9 = rand.Next(130, 330);
-            int y10 = rand.Next(130, 330);
-            int y11= rand.Next(130, 330);
-            int y12 = rand.Next(130, 330);
-            int y13 = rand.Next(130, 330);
-            int y14 = rand.Next(130, 330);
-            int y15 = rand.Next(130, 330);
-            int y16 = rand.Next(130, 330);
-            int y17 = rand.Next(130, 330);
-            int y18 = rand.Next(130, 330);
-            int y19 = rand.Next(130, 330);
+
 
             foreach (var x in MyCanvas.Children.OfType<Image>()) // all images move to the left
             {
@@ -125,139 +107,39 @@ namespace KinectMathGames
                 if ((string)x.Tag == "obs1")
                 {
                     Canvas.SetLeft(x, 450);
-                    Canvas.SetTop(x, y1);
+                    //Canvas.SetTop(x, y1);
 
                 }
 
-
                 if ((string)x.Tag == "obs2")
                 {
-                    Canvas.SetLeft(x, 650);
-                    Canvas.SetTop(x, y2);
+                    Canvas.SetLeft(x, 700);
+                    //Canvas.SetTop(x, y2);
 
                 }
 
                 if ((string)x.Tag == "obs3")
                 {
-                    Canvas.SetLeft(x, 850);
-                    Canvas.SetTop(x, y3);
-
-                }
-
-                if ((string)x.Tag == "obs4")
-                {
-                    Canvas.SetLeft(x, 1050);
-                    Canvas.SetTop(x, y4);
-                }
-
-
-                if ((string)x.Tag == "obs5")
-                {
-                    Canvas.SetLeft(x, 1250);
-                    Canvas.SetTop(x, y5);
-
-                }
-
-                if ((string)x.Tag == "obs6")
-                {
-                    Canvas.SetLeft(x, 1450);
-                    Canvas.SetTop(x, y6);
-
-                }
-
-                if ((string)x.Tag == "obs7")
-                {
-                    Canvas.SetLeft(x, 1650);
-                    Canvas.SetTop(x, y7);
-
-                }
-
-                if ((string)x.Tag == "obs8")
-                {
-                    Canvas.SetLeft(x, 1850);
-                    Canvas.SetTop(x, y8);
-                }
-
-
-                if ((string)x.Tag == "obs9")
-                {
-                    Canvas.SetLeft(x, 2050);
-                    Canvas.SetTop(x, y9);
-
-                }
-
-                if ((string)x.Tag == "obs10")
-                {
-                    Canvas.SetLeft(x, 2250);
-                    Canvas.SetTop(x, y10);
-
-                }
-
-                if ((string)x.Tag == "obs11")
-                {
-                    Canvas.SetLeft(x, 2450);
-                    Canvas.SetTop(x, y11);
-                }
-
-
-                if ((string)x.Tag == "obs12")
-                {
-                    Canvas.SetLeft(x, 2650);
-                    Canvas.SetTop(x, y12);
-
-                }
-                if ((string)x.Tag == "obs13")
-                {
-                    Canvas.SetLeft(x, 2850);
-                    Canvas.SetTop(x, y13);
-
-                }
-
-                if ((string)x.Tag == "obs14")
-                {
-                    Canvas.SetLeft(x, 3050);
-                    Canvas.SetTop(x, y14);
-                }
-
-
-                if ((string)x.Tag == "obs15")
-                {
-                    Canvas.SetLeft(x, 3250);
-                    Canvas.SetTop(x, y15);
-
-                }
-                if ((string)x.Tag == "obs16")
-                {
-                    Canvas.SetLeft(x, 3450);
-                    Canvas.SetTop(x, y16);
-
-                }
-
-                if ((string)x.Tag == "obs17")
-                {
-                    Canvas.SetLeft(x, 3650);
-                    Canvas.SetTop(x, y17);
-                }
-
-
-                if ((string)x.Tag == "obs18")
-                {
-                    Canvas.SetLeft(x, 3850);
-                    Canvas.SetTop(x, y18);
-
-                }
-
-                if ((string)x.Tag == "obs19")
-                {
-                    Canvas.SetLeft(x, 4050);
-                    Canvas.SetTop(x, y19);
+                    Canvas.SetLeft(x, 950);
+                    //Canvas.SetTop(x, y3);
 
                 }
 
             }
-
             gameTimer.Start();
 
+        }
+        public double getCursorTop()
+        {
+            foreach (var x in MyCanvas.Children.OfType<Ellipse>())
+            {
+                if ((string)x.Tag == "cursor")
+                {
+                    retDouble = Canvas.GetTop(x);
+                    break;
+                }
+            }
+            return retDouble;
         }
 
         private void EndGame()
