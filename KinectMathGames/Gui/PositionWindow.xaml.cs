@@ -32,9 +32,9 @@ namespace KinectMathGames
         private int score = 0;
         private PositionLogic pLogic = new PositionLogic();
         private static int xCoord = 380;
-        private static int startXCoord = 850;
+        //private static int startXCoord = 850;
         private double retDouble;
-        private int gateSpeed = 2;
+        //private int gateSpeed = 2;
 
         public PositionWindow()
         {
@@ -48,33 +48,28 @@ namespace KinectMathGames
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
-
+            //Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
             foreach (var x in MyCanvas.Children.OfType<Image>()) {
                 if ((string)x.Tag != "cursor")
                 {
                     if (Canvas.GetLeft(x) >= 845)
                     {
-                        Canvas.SetTop(x, pLogic.randomYCoord());
+                        //Canvas.SetTop(x, pLogic.randomYCoord());
                     }
-                    //Canvas.SetLeft(x, Canvas.GetLeft(x) - gateSpeed);
                     if (Canvas.GetLeft(x) <= xCoord+2  && Canvas.GetLeft(x) >= xCoord - 2)
                     {
                         if (pLogic.isInGate(getCursorTop(), Canvas.GetTop(x)))
                         {
+                            Console.WriteLine("Score is " + score + " right now");
+                            Canvas.SetLeft(x, -60);
                             score++;
+                            Console.WriteLine("Score is now " + score + ".  Hopefully that is right\n\n");
                             txtscore.Content = "Score: " + score;
-                            if(score % 5 == 0)
-                            {
-                                gateSpeed += 2;
-                            }
                         }
-                    }
-
-                    if (Canvas.GetLeft(x) <= -50)
-                    {
-                        Canvas.SetLeft(x, startXCoord);
-                        
+                        else
+                        {
+                            Console.WriteLine("I am a dummy head because I don't work\n\n");
+                        }
                     }
                 }                
             }
