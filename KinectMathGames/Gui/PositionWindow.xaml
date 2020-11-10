@@ -6,160 +6,161 @@
         xmlns:local="clr-namespace:KinectMathGames"
         mc:Ignorable="d"
         Title="PositionWindow" Height="450" Width="800">
-
-    <Grid>
-        <Image Source="../Images/Graph.jpg"/>
-        <Canvas Name="MyCanvas" Focusable="True" >
-            <Ellipse Name="cursor" Tag="cursor" Width="20" Height="20" Margin="0" Canvas.Left="380" Canvas.Top="208">
-                <Ellipse.Fill>
-                    <SolidColorBrush Color="#7FE22B2B" />
-                </Ellipse.Fill>
-            </Ellipse>
-            <Image Name="img1" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate1" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img2" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate2" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img3" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate3" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img4" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate4" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img5" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate5" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img6" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate6" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img7" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate7" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img8" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate8" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img9" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate9" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img10" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate10" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img11" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate11" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img12" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate12" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img13" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate13" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img14" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate14" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img15" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate15" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img16" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate16" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img17" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate17" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img18" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate18" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img19" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate19" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Image Name="img20" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate20" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score: 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
-            <Label Name="Position" FontSize="30" FontWeight="ExtraBold" Content="Position Game"/>
-
-            
-            <Canvas.Triggers>
-                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img1" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img2" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:02" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img3" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:04" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img4" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:06" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img5" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:08" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img6" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:10" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img7" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:12" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img8" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:14" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img9" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:16" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img10" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:18" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img11" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:20" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img12" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:22" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img13" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:24" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img14" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:26" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img15" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:28" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img16" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:30" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img17" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:32" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img18" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:34" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img19" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:36" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                    <BeginStoryboard >
-                        <Storyboard Storyboard.TargetName="img20" Storyboard.TargetProperty="(Canvas.Left)">
-                            <DoubleAnimation From="850" To="-50" SpeedRatio=".15" BeginTime="0:0:38" AutoReverse="False"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Canvas.Triggers>
-            
+    <Viewbox>
+        <Grid>
+            <Image Source="../Images/Graph.jpg"/>
+            <Canvas Name="MyCanvas" Focusable="True" >
+                <Ellipse Name="cursor" Tag="cursor" Width="20" Height="20" Margin="0" Canvas.Left="142" Canvas.Top="138">
+                    <Ellipse.Fill>
+                        <SolidColorBrush Color="#7FE22B2B" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Image Name="img1" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate1" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img2" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate2" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img3" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate3" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img4" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate4" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img5" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate5" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img6" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate6" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img7" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate7" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img8" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate8" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img9" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate9" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img10" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate10" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img11" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate11" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img12" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate12" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img13" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate13" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img14" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate14" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img15" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate15" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img16" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate16" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img17" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate17" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img18" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate18" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img19" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate19" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img20" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate20" Canvas.Left="453" RenderTransformOrigin="1.517,0.432" Canvas.Top="128"  />
+                <Label Name="txtscore" FontSize="18" FontWeight="Bold" Content="Score: 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="20" Canvas.Left="-110"/>
+                <Label Name="Position" FontSize="18" FontWeight="ExtraBold" Content="Position Game" Canvas.Left="-110"/>
 
 
-        </Canvas>
-        
-        
-        
-        <!--
-        
-        
-        
-        <Canvas Name="GatesAndScore">
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="Gate" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-            <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
-            <Label Name="Position" FontSize="30" FontWeight="ExtraBold" Content="Position Game"/>
-        </Canvas>-->
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img1" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img2" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:02" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img3" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:04" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img4" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:06" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img5" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:08" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img6" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:10" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img7" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:12" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img8" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:14" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img9" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:16" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img10" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:18" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img11" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:20" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img12" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:22" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img13" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:24" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img14" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:26" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img15" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:28" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img16" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:30" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img17" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:32" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img18" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:34" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img19" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:36" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                        <BeginStoryboard >
+                            <Storyboard Storyboard.TargetName="img20" Storyboard.TargetProperty="(Canvas.Left)">
+                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:38" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Canvas.Triggers>
 
-    </Grid>
+
+
+            </Canvas>
+
+
+
+            <!--
+        
+        
+        
+            <Canvas Name="GatesAndScore">
+                <Image Height="40" Width="50" Source="../Images/circle.png" Tag="Gate" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
+                <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
+                <Label Name="Position" FontSize="30" FontWeight="ExtraBold" Content="Position Game"/>
+            </Canvas>-->
+
+        </Grid>
+    </Viewbox>
 
 </Window>

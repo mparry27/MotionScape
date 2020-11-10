@@ -12,8 +12,8 @@ namespace KinectMathGames
 {
     class PositionLogic
     {
-        private static double MAX = 370.00;
-        private static double MIN = 20.00;
+        private static double MAX = 243.00;
+        private static double MIN = 0.00;
         private double upperRange;
         private double lowerRange;
         private Random r;

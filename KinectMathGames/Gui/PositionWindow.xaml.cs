@@ -31,7 +31,7 @@ namespace KinectMathGames
         private static double scale = 200;
         private int score = 0;
         private PositionLogic pLogic = new PositionLogic();
-        private static int xCoord = 380;
+        private static int xCoord = 142;
         //private static int startXCoord = 850;
         private double retDouble;
         //private int gateSpeed = 2;
