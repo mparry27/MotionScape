@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinectMathGames.Gui"
         mc:Ignorable="d"
-        Title="Graph" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinWidth="650" MinHeight="400">
+        Title="Graph" Height="824" Width="1464.889" WindowStartupLocation="CenterScreen" MinWidth="650" MinHeight="400">
     <Viewbox>
         <Grid Background="White">
             <!-- <Image Source="../Images/Graph.jpg" RenderTransformOrigin="0.488,0.518" Grid.RowSpan="2"/>-->
@@ -14,12 +14,74 @@
                 <Line X1="50" X2="50" Y1="0" Y2="100" Stroke="Black" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
                 <Ellipse Name="rec1" Width="10" Height="10" Canvas.Left="45" Canvas.Top="45" SnapsToDevicePixels="True" Panel.ZIndex="4">
                     <Ellipse.Fill>
-                        <SolidColorBrush Color="#7FE22B2B" />
+                        <SolidColorBrush Color="Red" />
                     </Ellipse.Fill>
                 </Ellipse>
             </Canvas>
-            <TextBlock Name="pointSlopeLbl" Text="fx = 3/4x+b" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="83" TextAlignment="Center" Typography.Fraction="Stacked" FontSize="6"/>
-            <TextBlock Name="textBlock" HorizontalAlignment="Left" Margin="26,23,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <TextBlock Name="pointSlopeLbl" Text="Graph Guesser" HorizontalAlignment="Left" Margin="5,5,0,94" Width="95" TextAlignment="Center" Typography.Fraction="Stacked" FontSize="8"/>
+            <Button Name="quitButton" Content="Quit" HorizontalAlignment="Left" Margin="5,0,0,5" VerticalAlignment="Bottom" Width="45" Click="QuitClick" Height="14" FontSize="7" FontWeight="Bold"/>
+            <Button Name="startResetButton" Content="Start" HorizontalAlignment="Right" Margin="0,0,110,5" VerticalAlignment="Bottom" Width="45" Click="StartResetClick" Height="14" FontSize="7" FontWeight="Bold"/>
+            <TextBlock Name="textBlock" HorizontalAlignment="Left" Margin="5,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="95" FontSize="3.5"><Run Text="&#x9;              &#x9;          ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><Run FontWeight="Bold" Text="THE GOAL">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="■    Score as many points by correctly guessing where the  ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="       line will appear. ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><LineBreak/><Run Text="&#x9;          &#x9;      ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><Run FontWeight="Bold" Text="HOW TO PLAY">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="■    A random equation will generate in point-slope ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="       form.&#xA;■    A timer will begin and you'll have until it ends to ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="       move yourself to where you believe the line will  ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="       appear.">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="■    If you are on the line when it appears you get a point, ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="       otherwise no point is rewarded.">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><Run Text="&#xA;">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><Run Text="■    After the last round your points are totaled and that's ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="       your score.">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run></TextBlock>
         </Grid>
     </Viewbox>
 </Window>
