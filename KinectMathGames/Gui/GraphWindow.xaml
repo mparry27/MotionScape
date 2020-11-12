@@ -12,13 +12,14 @@
             <Canvas Name="MyCanvas" Focusable="True" Height="100" Width="100" Margin="105,5,5,5" ClipToBounds="True">
                 <Line X1="0" X2="100" Y1="50" Y2="50" Stroke="Black" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
                 <Line X1="50" X2="50" Y1="0" Y2="100" Stroke="Black" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
-                <Ellipse Name="rec1" Width="10" Height="10" Canvas.Left="50" Canvas.Top="50" Margin="-5" SnapsToDevicePixels="True" Panel.ZIndex="4">
+                <Ellipse Name="rec1" Width="10" Height="10" Canvas.Left="45" Canvas.Top="45" SnapsToDevicePixels="True" Panel.ZIndex="4">
                     <Ellipse.Fill>
                         <SolidColorBrush Color="#7FE22B2B" />
                     </Ellipse.Fill>
                 </Ellipse>
             </Canvas>
             <TextBlock Name="pointSlopeLbl" Text="fx = 3/4x+b" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="83" TextAlignment="Center" Typography.Fraction="Stacked" FontSize="6"/>
+            <TextBlock Name="textBlock" HorizontalAlignment="Left" Margin="26,23,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         </Grid>
     </Viewbox>
 </Window>

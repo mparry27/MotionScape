@@ -23,8 +23,9 @@ namespace KinectMathGames.Gui
     {
         double scale = 50;
         Kinect sensor = new Kinect();
-        Ellipse point = new Ellipse() { Name = "Point", Width = 5, Height = 5, Fill = Brushes.Blue, SnapsToDevicePixels = true, Margin= new Thickness(-5,-5,-5,-5) };
         Line slope = new Line() { Stroke = Brushes.Green, StrokeThickness = 2, SnapsToDevicePixels = true };
+        Line playerHitLine1 = new Line() { Stroke = Brushes.Green, StrokeThickness = 2, SnapsToDevicePixels = true };
+        Line playerHitLine2 = new Line() { Stroke = Brushes.Green, StrokeThickness = 2, SnapsToDevicePixels = true };
         Random random = new Random();
         public GraphWindow()
         {
@@ -40,7 +41,8 @@ namespace KinectMathGames.Gui
             }
 
             MyCanvas.Children.Add(slope);
-            MyCanvas.Children.Add(point);
+            MyCanvas.Children.Add(playerHitLine1);
+            MyCanvas.Children.Add(playerHitLine2);
             Generate_Point();
             
 
@@ -63,6 +65,44 @@ namespace KinectMathGames.Gui
             double playerXPos = 50 + (sensor.xPosition * scale);
             Canvas.SetTop(rec1, playerYPos);
             Canvas.SetLeft(rec1, playerXPos);
+
+            playerHitLine1.X1 = Canvas.GetLeft(rec1) - 1;
+            playerHitLine1.Y1 = Canvas.GetTop(rec1) + 5;
+            playerHitLine1.X2 = playerHitLine1.X1 + 12;
+            playerHitLine1.Y2 = playerHitLine1.Y1;
+
+            playerHitLine2.X1 = Canvas.GetLeft(rec1) + 5;
+            playerHitLine2.Y1 = Canvas.GetTop(rec1) - 1;
+            playerHitLine2.X2 = playerHitLine2.X1;
+            playerHitLine2.Y2 = playerHitLine2.Y1 + 12;
+
+            if(IsIntersecting(new Point(playerHitLine1.X1, playerHitLine1.Y1), new Point(playerHitLine1.X2, playerHitLine1.Y2), new Point(slope.X1, slope.Y1), new Point(slope.X2, slope.Y2)))
+            {
+                textBlock.Text = "Detected";
+            }
+            else if (IsIntersecting(new Point(playerHitLine2.X1, playerHitLine2.Y1), new Point(playerHitLine2.X2, playerHitLine2.Y2), new Point(slope.X1, slope.Y1), new Point(slope.X2, slope.Y2)))
+            {
+                textBlock.Text = "Detected";
+            }
+            else
+            {
+                textBlock.Text = "Not Detected";
+            }
+        }
+
+        private bool IsIntersecting(Point a, Point b, Point c, Point d)
+        {
+            float denominator = (float)(((b.X - a.X) * (d.Y - c.Y)) - ((b.Y - a.Y) * (d.X - c.X)));
+            float numerator1 = (float)(((a.Y - c.Y) * (d.X - c.X)) - ((a.X - c.X) * (d.Y - c.Y)));
+            float numerator2 = (float)(((a.Y - c.Y) * (b.X - a.X)) - ((a.X - c.X) * (b.Y - a.Y)));
+
+            // Detect coincident lines (has a problem, read below)
+            if (denominator == 0) return numerator1 == 0 && numerator2 == 0;
+
+            float r = numerator1 / denominator;
+            float s = numerator2 / denominator;
+
+            return (r >= 0 && r <= 1) && (s >= 0 && s <= 1);
         }
 
         private void Big_Tick(object sender, EventArgs e)
