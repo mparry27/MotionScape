@@ -54,7 +54,7 @@ namespace KinectMathGames
         private void MainEvenTimer(object sender, EventArgs e)
         {
             Canvas.SetTop(rec1, -200 + (sensor.zPosition * scale)); // get the velocity for user
-            VBox = new Rect(Canvas.GetLeft(rec1), Canvas.GetTop(rec1), 1, rec1.Height);
+            VBox = new Rect(Canvas.GetLeft(rec1), Canvas.GetTop(rec1), 1, rec1.Height); // create rectangle for player width = 1 and height = rec1.height
 
             Random rand = new Random(); // generate random number of vertical position of gate
             int y1 = rand.Next(30, 350);
@@ -70,8 +70,8 @@ namespace KinectMathGames
             foreach (var x in MyCanvas.Children.OfType<Image>())
             {
                 if ((string)x.Tag != "cursor")
-                    GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), 3, x.Height);
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 4); // make gates move slow in the beginning
+                    GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), 3, x.Height); // create rectangle for gate width = 3 and height = gate.height
+                Canvas.SetLeft(x, Canvas.GetLeft(x) - 4); // make gates move slow in the beginning
 
                 if (Canvas.GetLeft(x) < -100)
                 {
