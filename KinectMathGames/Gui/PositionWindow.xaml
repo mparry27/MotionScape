@@ -15,49 +15,27 @@
                         <SolidColorBrush Color="#7FE22B2B" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <Rectangle Name="curRec" Width="20" Height="20" Canvas.Top="138" Canvas.Left="142" StrokeThickness="3" Fill="Blue" Stroke="Red"/>
-                <!--Fill="Blue" Stroke="Red"  -->
-                <Rectangle Name="rec1" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" Fill="Blue" Stroke="Red"/>
-                <Rectangle Name="rec2" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec3" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec4" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec5" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec6" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec7" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec8" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec9" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec10" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec11" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec12" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec13" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec14" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec15" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec16" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec17" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec18" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec19" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
-                <Rectangle Name="rec20" Width="50" Height="40" Canvas.Top="128" Canvas.Left="453" StrokeThickness="3" />
 
-                <Image Name="img1" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate1" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img2" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate2" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img3" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate3" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img4" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate4" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img5" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate5" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img6" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate6" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img7" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate7" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img8" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate8" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img9" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate9" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img10" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate10" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img11" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate11" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img12" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate12" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img13" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate13" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img14" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate14" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img15" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate15" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img16" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate16" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img17" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate17" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img18" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate18" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img19" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate19" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img20" Height="40" Width="50" Source="../Images/circle.png" Tag="Gate20" Canvas.Left="453" RenderTransformOrigin="1.517,0.432" Canvas.Top="128"  />
+                <Image Name="img1" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate1" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img2" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate2" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img3" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate3" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img4" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate4" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img5" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate5" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img6" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate6" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img7" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate7" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img8" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate8" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img9" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate9" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img10" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate10" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img11" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate11" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img12" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate12" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img13" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate13" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img14" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate14" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img15" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate15" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img16" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate16" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img17" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate17" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img18" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate18" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img19" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate19" Canvas.Left="453" Canvas.Top="128" RenderTransformOrigin="1.517,0.432"  />
+                <Image Name="img20" Height="30" Width="40" Source="../Images/circle.png" Tag="Gate20" Canvas.Left="453" RenderTransformOrigin="1.517,0.432" Canvas.Top="128"  />
                 <Label Name="txtscore" FontSize="18" FontWeight="Bold" Content="Score: 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="20" Canvas.Left="-110"/>
                 <Label Name="Position" FontSize="18" FontWeight="ExtraBold" Content="Position Game" Canvas.Left="-110"/>
 
@@ -164,30 +142,9 @@
                                 <DoubleAnimation From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:38" AutoReverse="False"/>
                             </Storyboard>
                         </BeginStoryboard>
-                        <BeginStoryboard >
-                            <Storyboard Storyboard.TargetName="rec1" Storyboard.TargetProperty="(Canvas.Left)">
-                                <DoubleAnimation From="453" To="-160" SpeedRatio=".15" AutoReverse="False"/>
-                            </Storyboard>
-                        </BeginStoryboard>
                     </EventTrigger>
                 </Canvas.Triggers>
-
-
-
             </Canvas>
-
-
-
-            <!--
-        
-        
-        
-            <Canvas Name="GatesAndScore">
-                <Image Height="40" Width="50" Source="../Images/circle.png" Tag="Gate" Canvas.Left="850" Canvas.Top="198" RenderTransformOrigin="1.517,0.432"  />
-                <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
-                <Label Name="Position" FontSize="30" FontWeight="ExtraBold" Content="Position Game"/>
-            </Canvas>-->
-
         </Grid>
     </Viewbox>
 

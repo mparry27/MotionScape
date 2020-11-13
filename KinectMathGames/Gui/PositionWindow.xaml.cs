@@ -31,10 +31,10 @@ namespace KinectMathGames
         private static double scale = 200;
         private int score = 0;
         private PositionLogic pLogic = new PositionLogic();
-        private static int xCoord = 142;
         private double retDouble;
-        private Rect recCur;
-        private Rect gat;
+        private Rect recCur = new Rect();
+        private Rect gat = new Rect();
+        private Rect intRec = new Rect(132, 0, 20, 283);
         
 
         public PositionWindow()
@@ -52,53 +52,30 @@ namespace KinectMathGames
             //Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
             //Canvas.SetTop(curRec, -scale + (kinect.zPosition * scale));
             foreach (var x in MyCanvas.Children.OfType<Image>()) {
-                if ((string)x.Tag != "cursor")
+               
+                gat = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), 40, 30);
+                
+
+                if (Canvas.GetLeft(x) > 450)
                 {
-                    if (Canvas.GetLeft(x) >= 845)
+                    Canvas.SetTop(x, pLogic.randomYCoord());                        
+                }
+
+                if (intRec.IntersectsWith(gat))
+                {
+                    recCur = new Rect(getCursorLeft(), getCursorTop(), 1, 20);
+                    if (recCur.IntersectsWith(gat))
                     {
-                        //Canvas.SetTop(x, pLogic.randomYCoord());
-                    }
-                    if (Canvas.GetLeft(x) <= xCoord+2  && Canvas.GetLeft(x) >= xCoord - 2)
-                    {
-                        if ((string)x.Name == "rec1"
-                            || (string)x.Name == "rec2"
-                            || (string)x.Name == "rec3"
-                            || (string)x.Name == "rec4"
-                            || (string)x.Name == "rec5"
-                            || (string)x.Name == "rec6"
-                            || (string)x.Name == "rec7"
-                            || (string)x.Name == "rec8"
-                            || (string)x.Name == "rec9"
-                            || (string)x.Name == "rec10"
-                            || (string)x.Name == "rec11"
-                            || (string)x.Name == "rec12"
-                            || (string)x.Name == "rec13"
-                            || (string)x.Name == "rec14"
-                            || (string)x.Name == "rec15"
-                            || (string)x.Name == "rec16"
-                            || (string)x.Name == "rec17"
-                            || (string)x.Name == "rec18"
-                            || (string)x.Name == "rec19"
-                            || (string)x.Name == "rec20")
+                        if ((string)x.Tag != "locked") 
                         {
-                            
-                            recCur = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), 20, 20);
-                            gat = new Rect(50, 50, 50, 40);
-                            if (/*pLogic.isInGate(getCursorTop(), Canvas.GetTop(x))*/recCur.IntersectsWith(gat))
-                            {
-                                Console.WriteLine("Score is " + score + " right now");
-                                Canvas.SetLeft(x, -60);
-                                score++;
-                                Console.WriteLine("Score is now " + score + ".  Hopefully that is right\n\n");
-                                txtscore.Content = "Score: " + score;
-                            }
-                            else
-                            {
-                                Console.WriteLine("I am a dummy head because I don't work\n\n");
-                            }
+                            score++;
+                            x.Tag = "locked";
                         }
+                        txtscore.Content = "Score: " + score;
                     }
-                }                
+                }
+ 
+                
             }
 
         }
@@ -110,6 +87,18 @@ namespace KinectMathGames
                 if ((string)x.Tag == "cursor")
                 {
                     retDouble = Canvas.GetTop(x);
+                    break;
+                }
+            }
+            return retDouble;
+        }
+        public double getCursorLeft()
+        {
+            foreach (var x in MyCanvas.Children.OfType<Ellipse>())
+            {
+                if ((string)x.Tag == "cursor")
+                {
+                    retDouble = Canvas.GetLeft(x);
                     break;
                 }
             }
