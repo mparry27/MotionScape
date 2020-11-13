@@ -54,14 +54,14 @@ namespace KinectMathGames
         private void MainEvenTimer(object sender, EventArgs e)
         {
             Canvas.SetTop(rec1, -200 + (sensor.zPosition * scale)); // get the velocity for user
-            VBox = new Rect(Canvas.GetLeft(rec1), Canvas.GetTop(rec1), rec1.Width, rec1.Height);
+            VBox = new Rect(Canvas.GetLeft(rec1), Canvas.GetTop(rec1), 1, rec1.Height); // create rectangle for player width = 1 and height = rec1.height
 
             Random rand = new Random(); // generate random number of vertical position of gate
-            int y1 = rand.Next(30, 350);
+            int y1 = rand.Next(10, 220);
 
             Canvas.SetTop(rec1, Canvas.GetTop(rec1));
 
-            if (score > 16)
+            if (score > 1)
             {
                 EndGame();
             }
@@ -70,22 +70,23 @@ namespace KinectMathGames
             foreach (var x in MyCanvas.Children.OfType<Image>())
             {
                 if ((string)x.Tag != "cursor")
-                    GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 4); // make gates move slow in the beginning
+                    GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), 2, x.Height); // create rectangle for gate width = 3 and height = gate.height
+                Canvas.SetLeft(x, Canvas.GetLeft(x) - 4); // make gates move slow in the beginning
 
                 if (Canvas.GetLeft(x) < -100)
                 {
-                    Canvas.SetLeft(x, 650);
+                    Canvas.SetLeft(x, 900);
                     Canvas.SetTop(x, y1);
-
-                    if (VBox.IntersectsWith(GateBox)) // if the Vbox hits gatebox logic then increment score
-                    {
-                        score =+ 1;
-                        txtscore.Content = "Score: " + score;
-                    }
-
+                    //score++;
                 }
 
+                if (VBox.IntersectsWith(GateBox)) // if the Vbox hits gatebox logic then increment score
+                {
+                    score ++;
+         
+                    txtscore.Content = "Score: " + score;
+                }
+                
             }
         }
 
@@ -98,7 +99,7 @@ namespace KinectMathGames
 
             gameOver = false;
             Canvas.SetTop(rec1, 78);
-
+            PauseButton.Content = "Pause";
 
 
             foreach (var x in MyCanvas.Children.OfType<Image>()) // all images move to the left
@@ -106,22 +107,19 @@ namespace KinectMathGames
 
                 if ((string)x.Tag == "obs1")
                 {
-                    Canvas.SetLeft(x, 450);
-                    //Canvas.SetTop(x, y1);
+                    Canvas.SetLeft(x, 600);
 
                 }
 
                 if ((string)x.Tag == "obs2")
                 {
-                    Canvas.SetLeft(x, 700);
-                    //Canvas.SetTop(x, y2);
+                    Canvas.SetLeft(x, 900);
 
                 }
 
                 if ((string)x.Tag == "obs3")
                 {
-                    Canvas.SetLeft(x, 950);
-                    //Canvas.SetTop(x, y3);
+                    Canvas.SetLeft(x, 1200);
 
                 }
 
@@ -141,13 +139,53 @@ namespace KinectMathGames
             }
             return retDouble;
         }
+        
 
         private void EndGame()
         {
             gameTimer.Stop();
             gameOver = true;
 
-            txtscore.Content += "Congratulations !!! \nYou WIN !!!";
+            //txtscore.Content += "Congratulations !!! \nYou WIN !!!";
+            WinText.Content += "Congratulations ! \nYou WIN ! \nPress reset to play again.";
+
+
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartGame();
+            gameTimer.Start();
+            score = 0;
+            txtscore.Content = "Score: " + score;
+            WinText.Content = String.Empty;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.Show();
+            this.Close();
+        }
+
+        private void PauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameTimer.Stop();
+            PauseButton.Content = "Start";
+
+            //String state = (sender as Button).Content.ToString();
+            //if (state == "Start") 
+            //{
+            //    gameTimer.Stop();
+            //    PauseButton.Content = "Start";
+            //}
+            //else
+            //{
+            //    gameTimer.Start();
+            //    PauseButton.Content = "Pause";
+            //}
+
+
         }
     }
 }
