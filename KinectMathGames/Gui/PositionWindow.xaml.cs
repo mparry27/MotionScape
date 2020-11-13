@@ -32,9 +32,10 @@ namespace KinectMathGames
         private int score = 0;
         private PositionLogic pLogic = new PositionLogic();
         private static int xCoord = 142;
-        //private static int startXCoord = 850;
         private double retDouble;
-        //private int gateSpeed = 2;
+        private Rect recCur;
+        private Rect gat;
+        
 
         public PositionWindow()
         {
@@ -49,6 +50,7 @@ namespace KinectMathGames
         private void Timer_Tick(object sender, EventArgs e)
         {
             //Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
+            //Canvas.SetTop(curRec, -scale + (kinect.zPosition * scale));
             foreach (var x in MyCanvas.Children.OfType<Image>()) {
                 if ((string)x.Tag != "cursor")
                 {
@@ -58,17 +60,42 @@ namespace KinectMathGames
                     }
                     if (Canvas.GetLeft(x) <= xCoord+2  && Canvas.GetLeft(x) >= xCoord - 2)
                     {
-                        if (pLogic.isInGate(getCursorTop(), Canvas.GetTop(x)))
+                        if ((string)x.Name == "rec1"
+                            || (string)x.Name == "rec2"
+                            || (string)x.Name == "rec3"
+                            || (string)x.Name == "rec4"
+                            || (string)x.Name == "rec5"
+                            || (string)x.Name == "rec6"
+                            || (string)x.Name == "rec7"
+                            || (string)x.Name == "rec8"
+                            || (string)x.Name == "rec9"
+                            || (string)x.Name == "rec10"
+                            || (string)x.Name == "rec11"
+                            || (string)x.Name == "rec12"
+                            || (string)x.Name == "rec13"
+                            || (string)x.Name == "rec14"
+                            || (string)x.Name == "rec15"
+                            || (string)x.Name == "rec16"
+                            || (string)x.Name == "rec17"
+                            || (string)x.Name == "rec18"
+                            || (string)x.Name == "rec19"
+                            || (string)x.Name == "rec20")
                         {
-                            Console.WriteLine("Score is " + score + " right now");
-                            Canvas.SetLeft(x, -60);
-                            score++;
-                            Console.WriteLine("Score is now " + score + ".  Hopefully that is right\n\n");
-                            txtscore.Content = "Score: " + score;
-                        }
-                        else
-                        {
-                            Console.WriteLine("I am a dummy head because I don't work\n\n");
+                            
+                            recCur = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), 20, 20);
+                            gat = new Rect(50, 50, 50, 40);
+                            if (/*pLogic.isInGate(getCursorTop(), Canvas.GetTop(x))*/recCur.IntersectsWith(gat))
+                            {
+                                Console.WriteLine("Score is " + score + " right now");
+                                Canvas.SetLeft(x, -60);
+                                score++;
+                                Console.WriteLine("Score is now " + score + ".  Hopefully that is right\n\n");
+                                txtscore.Content = "Score: " + score;
+                            }
+                            else
+                            {
+                                Console.WriteLine("I am a dummy head because I don't work\n\n");
+                            }
                         }
                     }
                 }                
