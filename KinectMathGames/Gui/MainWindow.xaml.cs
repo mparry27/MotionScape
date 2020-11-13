@@ -49,5 +49,7 @@ namespace KinectMathGames
             graphWindow.Show();
             this.Close();
         }
+
+
     }
 }

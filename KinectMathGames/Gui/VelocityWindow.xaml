@@ -15,14 +15,19 @@
                     <SolidColorBrush Color="Black" />
                 </Ellipse.Fill>
             </Ellipse>
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs1" Canvas.Left="600" Canvas.Top="200" RenderTransformOrigin="1.517,0.432" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs2" Canvas.Left="850" Canvas.Top="30" RenderTransformOrigin="0.667,-0.27" />
-            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs3" Canvas.Left="1100" Canvas.Top="350" RenderTransformOrigin="0.567,-0.373" />
-           
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs1" Canvas.Left="850" Canvas.Top="200" RenderTransformOrigin="1.517,0.432" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs2" Canvas.Left="1150" Canvas.Top="30" RenderTransformOrigin="0.667,-0.27" />
+            <Image Height="40" Width="50" Source="../Images/circle.png" Tag="obs3" Canvas.Left="1400" Canvas.Top="350" RenderTransformOrigin="0.567,-0.373" />
 
-            <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score : 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
+
+            <Label Name="txtscore" FontSize="30" FontWeight="Bold" Content="Score: 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="36"/>
             <Label Name="VelocityText" FontSize="30" FontWeight="ExtraBold" Content="Velocity Game"/>
+            <Label x:Name="WinText" Content="" Canvas.Left="163" Canvas.Top="93" Height="242" Width="458" FontSize="35" FontWeight="ExtraBold"/>
+            <Button x:Name="ResetButton_Copy" Content="reset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="42" FontSize="20" Click="ResetButton_Click" Canvas.Left="689" Canvas.Top="339"/>
+            <Button x:Name="BackButton" Content="Back" Canvas.Left="61" Canvas.Top="339" Width="94" Height="42" FontSize="20" Click="BackButton_Click"/>
+            <Button x:Name="PauseButton" Content="Pause" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="94" Height="42" FontSize="20" Canvas.Left="577" Canvas.Top="339" Click="PauseButton_Click"/>
         </Canvas>
+
 
 
     </Grid>
