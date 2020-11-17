@@ -78,9 +78,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Gui\GraphSettingsDialog.xaml.cs">
+      <DependentUpon>GraphSettingsDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gui\VelocityWindow.xaml.cs">
       <DependentUpon>VelocityWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Gui\GraphSettingsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gui\GraphWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,6 +152,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Gui\SettingsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SettingsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PauseIcon.png" />
+    <Resource Include="Images\PlayIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

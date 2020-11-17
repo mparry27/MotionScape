@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Microsoft.Kinect;
 
 namespace KinectMathGames.Domain
@@ -11,6 +12,7 @@ namespace KinectMathGames.Domain
     class Kinect : INotifyPropertyChanged
     {
         private KinectSensor sensor;
+        public bool isReady = false;
         private long prevTimeStamp = 0;
         private float zpos = 0;
         private float prevZPos = 0;
@@ -82,13 +84,24 @@ namespace KinectMathGames.Domain
 
         public Kinect()
         {
-            if (KinectSensor.KinectSensors.Count > 0)
+            while(!isReady)
             {
-                sensor = KinectSensor.KinectSensors[0];
-                sensor.AllFramesReady += this.SensorAllFramesReady;
+                try
+                {
+                    if (KinectSensor.KinectSensors.Count > 0)
+                    {
+                        sensor = KinectSensor.KinectSensors[0];
+                        sensor.AllFramesReady += this.SensorAllFramesReady;
+                    }
+                    sensor.Start();
+                    sensor.SkeletonStream.Enable();
+                    isReady = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            sensor.Start();
-            sensor.SkeletonStream.Enable();
         }
 
 

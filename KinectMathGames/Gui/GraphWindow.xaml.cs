@@ -17,11 +17,14 @@ namespace KinectMathGames.Gui
         double scale = 50;
         Kinect sensor = new Kinect();
         Line slope = new Line() { Stroke = Brushes.Green, StrokeThickness = 2, SnapsToDevicePixels = true };
+        Line bonusSlope = new Line();
         Line playerHitLine1 = new Line() { SnapsToDevicePixels = true };
         Line playerHitLine2 = new Line() { SnapsToDevicePixels = true };
-        int round = 0;
+        int round = 1;
         int seconds = 0;
         int score = 0;
+        int timeLimit = 10;
+        int roundLimit = 5;
         Random random = new Random();
         DispatcherTimer roundTimer = new DispatcherTimer();
         DispatcherTimer tickTimer = new DispatcherTimer();
@@ -40,6 +43,7 @@ namespace KinectMathGames.Gui
 
             // Add slope and hit detection lines
             MyCanvas.Children.Add(slope);
+            MyCanvas.Children.Add(bonusSlope);
             MyCanvas.Children.Add(playerHitLine1);
             MyCanvas.Children.Add(playerHitLine2);
             
@@ -89,50 +93,61 @@ namespace KinectMathGames.Gui
         private void StartGame()
         {
             score = 0;
-            round = 0;
+            round = 1;
             seconds = 0;
             startResetButton.Content = "Reset";
-
             roundTimer.Start();
 
+            settingsIcon.Source = (ImageSource)FindResource("PauseIcon");
+            optionsButton.Tag = "playing";
+
             GenerateRandomLine();
-            textBlock.FontSize = 8;
-            textBlock.Text = "\nTime: " + 10 + "\n\nScore: " + score;
+            textBlock.Visibility = Visibility.Visible;
+            instructions.Visibility = Visibility.Hidden;
+            textBlock.Text = "Rounds: "+round+" / "+roundLimit+"\n\nTime: " + timeLimit + "\n\nScore: " + score;
         }
 
         private void RoundTimer(object sender, EventArgs e)
         {
             seconds += 1;
             int secondsDisplay;
-            if(round < 5)
+            if(round <= roundLimit)
             {
-                if (seconds == 10)
+                if (seconds == timeLimit)
                 {
                     slope.Visibility = Visibility.Visible;
                     if (IsIntersecting(new Point(playerHitLine1.X1, playerHitLine1.Y1), new Point(playerHitLine1.X2, playerHitLine1.Y2), new Point(slope.X1, slope.Y1), new Point(slope.X2, slope.Y2))
                         || IsIntersecting(new Point(playerHitLine2.X1, playerHitLine2.Y1), new Point(playerHitLine2.X2, playerHitLine2.Y2), new Point(slope.X1, slope.Y1), new Point(slope.X2, slope.Y2)))
                     {
-                        
-                        score++;
+                        score += 2;
+                    }
+                    if (IsIntersecting(new Point(playerHitLine1.X1, playerHitLine1.Y1), new Point(playerHitLine1.X2, playerHitLine1.Y2), new Point(bonusSlope.X1, bonusSlope.Y1), new Point(bonusSlope.X2, bonusSlope.Y2))
+                        || IsIntersecting(new Point(playerHitLine2.X1, playerHitLine2.Y1), new Point(playerHitLine2.X2, playerHitLine2.Y2), new Point(bonusSlope.X1, bonusSlope.Y1), new Point(bonusSlope.X2, bonusSlope.Y2)))
+                    {
+                        score--;
                     }
                 }
-                else if (seconds == 14)
+                else if (seconds == timeLimit+4)
                 {
                     round++;
-                    GenerateRandomLine();
                     seconds = 0;
+                    if(round <= roundLimit)
+                        GenerateRandomLine();
                 }
-                if (seconds > 10)
-                    secondsDisplay = 0;
-                else
-                    secondsDisplay = 10 - seconds;
-                textBlock.Text = "\nTime: " + secondsDisplay + "\n\nScore: " + score;
+                if(round <= roundLimit)
+                {
+                    if (seconds > timeLimit)
+                        secondsDisplay = 0;
+                    else
+                        secondsDisplay = timeLimit - seconds;
+                    textBlock.Text = "Rounds: " + round + " / " + roundLimit + "\n\nTime: " + secondsDisplay + "\n\nScore: " + score;
+                }
             }
             else
             {
                 roundTimer.Stop();
                 startResetButton.Content = "Play Again?";
-                textBlock.Text = "\nTotal Score: " + score;
+                textBlock.Text = "\n\nTotal Score: " + score;
             }
         }
 
@@ -141,20 +156,12 @@ namespace KinectMathGames.Gui
             roundTimer.Stop();
             pointSlopeLbl.Text = "Graph Guesser";
 
-            textBlock.Text = "";
-            Run run = new Run
-            {
-                FontWeight = FontWeights.Bold,
-                FontSize = 3.5,
-                Text = "                             THE GOAL"
-            };
-            textBlock.Inlines.Add(run);
-            run.FontWeight = FontWeights.Normal;
-            textBlock.Inlines.Add(new LineBreak());
-            run.Text = ("■    Score as many points by correctly guessing where the  ");
-            textBlock.Inlines.Add(run);
+            settingsIcon.Source = (ImageSource)FindResource("SettingsIcon");
+            optionsButton.Tag = "settings";
 
             startResetButton.Content = "Start";
+            textBlock.Visibility = Visibility.Hidden;
+            instructions.Visibility = Visibility.Visible;
         }
 
         private void GenerateRandomLine()
@@ -177,6 +184,17 @@ namespace KinectMathGames.Gui
             slope.X2 += slopeRun*10;
             slope.Y2 += slopeRise*-10;
 
+            bonusSlope.X1 = pointX;
+            bonusSlope.X2 = pointX;
+            bonusSlope.Y1 = pointY;
+            bonusSlope.Y2 = pointY;
+
+            bonusSlope.X1 += slopeRun * -0.5;
+            bonusSlope.Y1 += slopeRise * 0.5;
+            bonusSlope.X2 += slopeRun * 0.5;
+            bonusSlope.Y2 += slopeRise * -0.5;
+
+            //Update function label
             pointSlopeLbl.Text = "(y ";
             if ((5-(pointY / 10)) < 0)
                 pointSlopeLbl.Text += "- ";
@@ -209,6 +227,33 @@ namespace KinectMathGames.Gui
             else
             {
                 ResetGame();
+            }
+        }
+
+        private void OptionsClick(object sender, RoutedEventArgs e)
+        {
+            String state = optionsButton.Tag.ToString();
+            if(state == "settings")
+            {
+                var dlg = new GraphSettingsDialog { Owner = this };
+                dlg.ShowDialog();
+                if (dlg.DialogResult == true)
+                {
+                    timeLimit = int.Parse(dlg.txtTimeLimit.Text);
+                    roundLimit = int.Parse(dlg.txtRounds.Text);
+                }
+            }
+            else if(state == "playing")
+            {
+                roundTimer.Stop();
+                optionsButton.Tag = "paused";
+                settingsIcon.Source = (ImageSource)FindResource("PlayIcon");
+            }
+            else
+            {
+                roundTimer.Start();
+                optionsButton.Tag = "playing";
+                settingsIcon.Source = (ImageSource)FindResource("PauseIcon");
             }
         }
     }
