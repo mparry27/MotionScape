@@ -35,12 +35,13 @@ namespace KinectMathGames
         private Rect recCur = new Rect();
         private Rect gat = new Rect();
         private Rect intRec = new Rect(132, 0, 20, 283);
-        
+        private DispatcherTimer dispatcherTimer = new DispatcherTimer();
+
 
         public PositionWindow()
         {
             InitializeComponent();
-            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            
             dispatcherTimer.Tick += Timer_Tick;
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(20);
             dispatcherTimer.Start();
@@ -104,6 +105,44 @@ namespace KinectMathGames
             }
             return retDouble;
         }
+
+        private void QuitClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void OptionsClick(object sender, RoutedEventArgs e)
+        {
+            String state = optionsButton.Tag.ToString();
+            if (state == "playing")
+            {
+                optionsButton.Tag = "paused";
+                pauseIcon.Source = (ImageSource)FindResource("PlayIcon");
+                Animation.Stop(this);
+            }
+            else
+            {
+                optionsButton.Tag = "playing";
+                pauseIcon.Source = (ImageSource)FindResource("PauseIcon");
+                Animation.Resume(this);
+            }
+        }
+
+        private void StartResetClick(object sender, RoutedEventArgs e)
+        {
+            String state = (sender as Button).Tag.ToString();
+            if (state == "Start")
+            {
+                startResetButton.Content = "Reset";
+            }
+            startResetButton.Tag = "Reset";
+            txtscore.Content = "Score: 0";
+            score = 0;
+        }
+
+        
 
     }
 }
