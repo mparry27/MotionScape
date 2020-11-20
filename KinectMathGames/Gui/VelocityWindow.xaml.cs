@@ -53,34 +53,35 @@ namespace KinectMathGames
 
         private void MainEvenTimer(object sender, EventArgs e)
         {
-            Canvas.SetTop(rec1, -200 + (sensor.zPosition * scale)); // get the velocity for user
+            Canvas.SetTop(rec1, -200 + (sensor.zVelocity * scale)); // get the velocity for user
             VBox = new Rect(Canvas.GetLeft(rec1), Canvas.GetTop(rec1), 1, rec1.Height); // create rectangle for player width = 1 and height = rec1.height
 
             Random rand = new Random(); // generate random number of vertical position of gate
-            int y1 = rand.Next(10, 220);
+            int y1 = rand.Next(30, 220);
 
             Canvas.SetTop(rec1, Canvas.GetTop(rec1));
 
-            if (score > 1)
+            if (score > 19)
             {
                 EndGame();
             }
 
 
+
             foreach (var x in MyCanvas.Children.OfType<Image>())
             {
                 if ((string)x.Tag != "cursor")
-                    GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), 2, x.Height); // create rectangle for gate width = 3 and height = gate.height
-                Canvas.SetLeft(x, Canvas.GetLeft(x) - 4); // make gates move slow in the beginning
+                    GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x) + 26, 1, 26); // create rectangle for gate width = 3 and height = gate.height
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 4); // make gates move slow in the beginning
 
-                if (Canvas.GetLeft(x) < -100)
+                else if (Canvas.GetLeft(x) < -100)
                 {
                     Canvas.SetLeft(x, 900);
                     Canvas.SetTop(x, y1);
                     //score++;
                 }
 
-                if (VBox.IntersectsWith(GateBox)) // if the Vbox hits gatebox logic then increment score
+                else if (VBox.IntersectsWith(GateBox)) // if the Vbox hits gatebox logic then increment score
                 {
                     score ++;
          
