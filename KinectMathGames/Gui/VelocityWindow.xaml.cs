@@ -18,6 +18,7 @@ using System.Windows.Threading;
 using Microsoft.Kinect;
 using KinectMathGames.Domain;
 
+
 namespace KinectMathGames
 {
     /// <summary>
@@ -32,7 +33,7 @@ namespace KinectMathGames
         bool gameOver;
         private double retDouble;
 
-        double scale = 200;
+        double scale = 130;
         Kinect sensor = new Kinect();
 
         Rect VBox; //store position of the velocity from GUI
@@ -53,7 +54,8 @@ namespace KinectMathGames
 
         private void MainEvenTimer(object sender, EventArgs e)
         {
-            Canvas.SetTop(rec1, -200 + (sensor.zVelocity * scale)); // get the velocity for user
+            Canvas.SetTop(rec1, 100 + (sensor.zVelocity * -scale)); // get the velocity for user
+            
             VBox = new Rect(Canvas.GetLeft(rec1), Canvas.GetTop(rec1), 1, rec1.Height); // create rectangle for player width = 1 and height = rec1.height
 
             Random rand = new Random(); // generate random number of vertical position of gate
@@ -72,21 +74,21 @@ namespace KinectMathGames
             {
                 if ((string)x.Tag != "cursor")
                     GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x) + 26, 1, 26); // create rectangle for gate width = 3 and height = gate.height
-                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 4); // make gates move slow in the beginning
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - 3); // make gates move slow in the beginning
 
-                else if (Canvas.GetLeft(x) < -100)
-                {
-                    Canvas.SetLeft(x, 900);
-                    Canvas.SetTop(x, y1);
-                    //score++;
-                }
+                    if (Canvas.GetLeft(x) < 20)
+                    {
+                        Canvas.SetLeft(x, 900);
+                        Canvas.SetTop(x, y1);
+                        //score++;
+                    }
 
-                else if (VBox.IntersectsWith(GateBox)) // if the Vbox hits gatebox logic then increment score
-                {
-                    score ++;
+                    if (VBox.IntersectsWith(GateBox)) // if the Vbox hits gatebox logic then increment score
+                    {
+                        score ++;
          
-                    txtscore.Content = "Score: " + score;
-                }
+                        txtscore.Content = "Score: " + score;
+                    }
                 
             }
         }
