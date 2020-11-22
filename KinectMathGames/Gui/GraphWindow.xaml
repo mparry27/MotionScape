@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinectMathGames.Gui"
         mc:Ignorable="d"
-        Title="Graph" Height="844" Width="1464.889" WindowStartupLocation="CenterScreen" MinWidth="650" MinHeight="400">
+        Title="Graph" Height="450" Width="800" WindowStartupLocation="CenterOwner" MinWidth="650" MinHeight="400" WindowState="Maximized">
     <Window.Resources >
         <ResourceDictionary >
             <ImageSource x:Key="SettingsIcon">/Images/SettingsIcon.png</ImageSource>
@@ -15,25 +15,24 @@
     </Window.Resources>
     <Viewbox>
         <Grid Background="White">
-            <!-- <Image Source="../Images/Graph.jpg" RenderTransformOrigin="0.488,0.518" Grid.RowSpan="2"/>-->
             <Canvas Name="MyCanvas" Focusable="True" Height="100" Width="100" Margin="105,5,5,5" ClipToBounds="True">
                 <Line X1="0" X2="100" Y1="50" Y2="50" Stroke="Black" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
                 <Line X1="50" X2="50" Y1="0" Y2="100" Stroke="Black" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
                 <Ellipse Name="rec1" Width="10" Height="10" Canvas.Left="45" Canvas.Top="45" SnapsToDevicePixels="True" Panel.ZIndex="4">
                     <Ellipse.Fill>
-                        <SolidColorBrush Color="Red" />
+                        <SolidColorBrush Color="#FFFF6600" />
                     </Ellipse.Fill>
                 </Ellipse>
             </Canvas>
-            <TextBlock Name="pointSlopeLbl" Text="Graph Guesser" HorizontalAlignment="Left" Margin="5,5,0,94" Width="95" TextAlignment="Center" Typography.Fraction="Stacked" FontSize="8"/>
-            <Button Name="quitButton" Content="Quit" HorizontalAlignment="Left" Margin="5,0,0,1" VerticalAlignment="Bottom" Width="25" Click="QuitClick" Height="14" FontSize="7" FontWeight="Bold"/>
-            <Button Name="startResetButton" Content="Start" HorizontalAlignment="Right" Margin="0,0,129,1" VerticalAlignment="Bottom" Width="46" Click="StartResetClick" Height="14" FontSize="7" FontWeight="Bold"/>
-            <Button Tag="settings" Name="optionsButton" HorizontalAlignment="Right" Margin="0,0,110,1" VerticalAlignment="Bottom" Width="14" Click="OptionsClick" Height="14" FontSize="7" FontWeight="Bold">
+            <TextBlock Name="pointSlopeLbl" Text="Graph Guesser" HorizontalAlignment="Left" Margin="5,5,0,93" Width="95" TextAlignment="Center" Typography.Fraction="Stacked" FontSize="10"/>
+            <Button Name="quitButton" Content="Quit" HorizontalAlignment="Left" Margin="5,0,0,3" VerticalAlignment="Bottom" Width="25" Click="QuitClick" Height="14" FontSize="7" FontWeight="Bold"/>
+            <Button Name="startResetButton" Content="Start" HorizontalAlignment="Right" Margin="0,0,129,3" VerticalAlignment="Bottom" Width="46" Click="StartResetClick" Height="14" FontSize="7" FontWeight="Bold"/>
+            <Button Tag="settings" Name="optionsButton" HorizontalAlignment="Right" Margin="0,0,110,3" VerticalAlignment="Bottom" Width="14" Click="OptionsClick" Height="14" FontSize="7" FontWeight="Bold">
                 <ContentControl>
                     <Image Name="settingsIcon" Width="10" Height="10" Source="/Images/SettingsIcon.png"/>
                 </ContentControl>
             </Button>
-            <TextBlock x:Name="instructions" HorizontalAlignment="Left" Margin="5,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="95" FontSize="3.5"><Run Text="&#x9;              &#x9;          ">
+            <TextBlock x:Name="instructions" HorizontalAlignment="Left" Margin="5,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="95" FontSize="3.5"><Run Text="&#x9;              &#x9;          ">
                     <Run.Background>
                         <ImageBrush/>
                     </Run.Background>
@@ -98,7 +97,7 @@
                         <ImageBrush/>
                     </Run.Background>
                 </Run></TextBlock>
-            <TextBlock Name="textBlock" HorizontalAlignment="Left" Margin="5,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="95" FontSize="8"/>
+            <TextBlock Name="textBlock" HorizontalAlignment="Left" Margin="5,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="95" FontSize="8"/>
         </Grid>
     </Viewbox>
 </Window>

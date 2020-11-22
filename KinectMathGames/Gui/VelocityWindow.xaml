@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinectMathGames"
         mc:Ignorable="d"
-        Title="Velocity Game" Height="450" Width="800">
-
+        Title="Velocity Game" Height="450" Width="800"  WindowStartupLocation="CenterOwner" WindowState="Maximized">
     <Viewbox>
         <Grid>
             <Image Source="../Images/Graph.jpg"/>

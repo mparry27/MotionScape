@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinectMathGames"
         mc:Ignorable="d"
-        Title="PositionWindow" Height="450" Width="800">
+        Title="PositionWindow" Height="450" Width="800" WindowStartupLocation="CenterOwner" WindowState="Maximized">
     <Window.Resources >
         <ResourceDictionary >
             <ImageSource x:Key="SettingsIcon">/Images/SettingsIcon.png</ImageSource>

@@ -5,67 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinectMathGames.Gui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinWidth="650" MinHeight="400">
-    <Grid Background="#FF121212">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid Background="#0CFFFFFF" Grid.Row="0" Grid.Column="0" Margin="8">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="16" Grid.RowSpan="8" Content="MotionScape" FontWeight="Bold" FontSize="96" HorizontalAlignment="Center" Background="#00000000" Foreground="#DDFFFFFF" VerticalAlignment="Center" FontFamily="Microsoft YaHei UI Light" Margin="0,10,2,10" Width="580"/>
-            <Button Grid.Row="10" Grid.Column="6" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="VELOCITY" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Margin="8,0" Foreground="#DD000000" BorderBrush="#00707070" Click="VelocityGameClicked">
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
-            <Button Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="POSITION" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Foreground="#DD000000" Margin="8,0" BorderBrush="#00707070" Click="PositionGameClick">
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
-            <Button Grid.Row="10" Grid.Column="10" Grid.ColumnSpan="4" Grid.RowSpan="2" Content="GRAPH" FontFamily="Microsoft YaHei UI" FontSize="20" Background="#FF8686FC" Margin="8,0" Foreground="#DD000000" BorderBrush="#00707070" Click="GraphGameClicked">
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Viewbox>
+        <Grid Height="560" Width="800">
+            <Label Content="MotionScape" FontWeight="Bold" FontSize="128" FontFamily="Microsoft YaHei UI Light" Margin="0,0,0,360" HorizontalAlignment="Center" VerticalAlignment="Center" Height="159"/>
+            <StackPanel Margin="0,180,0,0">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="0,20,0,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Click="PositionGameClick" Width="470" Height="100" Background="#007070AE" BorderBrush="#00707070" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/PositionIcon.png"/>
+                        <TextBlock FontSize="72" FontWeight="Bold" VerticalAlignment="Center" Text=" Position"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="VelocityGameClicked" Width="470" Height="100" Background="#007070AE" BorderBrush="#00707070" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/VelocityIcon.png"/>
+                        <TextBlock FontSize="72" FontWeight="Bold" VerticalAlignment="Center" Text=" Velocity"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="GraphGameClicked" Width="470" Height="100" Background="#007070AE" BorderBrush="#00707070" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/GraphIcon.png"/>
+                        <TextBlock FontSize="72" FontWeight="Bold" VerticalAlignment="Center" Text=" Graph   "/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
         </Grid>
-    </Grid>
+    </Viewbox>
 </Window>
