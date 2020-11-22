@@ -76,7 +76,7 @@ namespace KinectMathGames
                     GateBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x) + 26, 1, 26); // create rectangle for gate width = 3 and height = gate.height
                     Canvas.SetLeft(x, Canvas.GetLeft(x) - 3); // make gates move slow in the beginning
 
-                    if (Canvas.GetLeft(x) < 20)
+                    if (Canvas.GetLeft(x) < 95)
                     {
                         Canvas.SetLeft(x, 900);
                         Canvas.SetTop(x, y1);
