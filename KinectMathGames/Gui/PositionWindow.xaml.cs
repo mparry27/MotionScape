@@ -36,17 +36,18 @@ namespace KinectMathGames
         private Rect gat = new Rect();
         private Rect intRec = new Rect(132, 0, 20, 283);
         private DispatcherTimer dispatcherTimer = new DispatcherTimer();
-
+        Storyboard myStoryboard;
 
         public PositionWindow()
         {
             InitializeComponent();
-            
+            myStoryboard = Animation;
             dispatcherTimer.Tick += Timer_Tick;
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(20);
             dispatcherTimer.Start();
-            
-            
+            congrats.Visibility = Visibility.Hidden;
+            FinalScore.Content = "";
+
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -54,7 +55,7 @@ namespace KinectMathGames
             //Canvas.SetTop(curRec, -scale + (kinect.zPosition * scale));
             foreach (var x in MyCanvas.Children.OfType<Image>()) {
                
-                gat = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), 40, 30);
+                gat = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x)+52, 40, 30);
                 
 
                 if (Canvas.GetLeft(x) > 450)
@@ -65,7 +66,7 @@ namespace KinectMathGames
                 if (intRec.IntersectsWith(gat))
                 {
                     recCur = new Rect(getCursorLeft(), getCursorTop(), 1, 20);
-                    if (recCur.IntersectsWith(gat))
+                    if (recCur.IntersectsWith(gat) && pLogic.isInGate(getCursorTop(), Canvas.GetTop(x) + 45))
                     {
                         if ((string)x.Tag != "locked") 
                         {
@@ -73,6 +74,12 @@ namespace KinectMathGames
                             x.Tag = "locked";
                         }
                         txtscore.Content = "Score: " + score;
+                    }
+
+                    if (x.Name == "img20" && Canvas.GetLeft(x) == -160)
+                    {
+                        FinalScore.Content = score;
+                        congrats.Visibility = Visibility.Visible;
                     }
                 }
  
@@ -120,18 +127,20 @@ namespace KinectMathGames
             {
                 optionsButton.Tag = "paused";
                 pauseIcon.Source = (ImageSource)FindResource("PlayIcon");
-                Animation.Stop(this);
+                Animation.Stop();
             }
             else
             {
                 optionsButton.Tag = "playing";
                 pauseIcon.Source = (ImageSource)FindResource("PauseIcon");
-                Animation.Resume(this);
+                Animation.Resume();
             }
         }
 
         private void StartResetClick(object sender, RoutedEventArgs e)
         {
+            congrats.Visibility = Visibility.Hidden;
+            FinalScore.Content = "";
             String state = (sender as Button).Tag.ToString();
             if (state == "Start")
             {
@@ -140,6 +149,13 @@ namespace KinectMathGames
             startResetButton.Tag = "Reset";
             txtscore.Content = "Score: 0";
             score = 0;
+            foreach (var x in MyCanvas.Children.OfType<Image>())
+            {
+                if ((string)x.Tag == "locked")
+                {
+                    x.Tag = "unLocked";
+                }
+            }
         }
 
         

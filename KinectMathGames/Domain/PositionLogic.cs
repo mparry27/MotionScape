@@ -12,8 +12,8 @@ namespace KinectMathGames
 {
     class PositionLogic
     {
-        private static double MAX = 243.00;
-        private static double MIN = 0.00;
+        private static double MAX = 208.00;
+        private static double MIN = -53.00;
         private double upperRange;
         private double lowerRange;
         private Random r;
@@ -29,7 +29,7 @@ namespace KinectMathGames
         public bool isInGate(double skeletonCoord, double gateCoord)
         {
             lowerRange = gateCoord;
-            upperRange = gateCoord + 20;
+            upperRange = gateCoord + 22;
             if (skeletonCoord >= lowerRange && skeletonCoord <= upperRange)
             {
                 return true;
