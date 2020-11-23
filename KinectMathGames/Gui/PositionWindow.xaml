@@ -51,16 +51,29 @@
 
                 <Button Name="startResetButton" Content="Start" Tag="Start" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="46"  Height="14" FontSize="7" FontWeight="Bold" Click="StartResetClick" Canvas.Left="-79" Canvas.Top="258"/>
                 <Button Name="quitButton" Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="25" Click="QuitClick" Height="14" FontSize="7" FontWeight="Bold" Canvas.Left="-103" Canvas.Top="258"/>
-                <Button Tag="playing" Name="optionsButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="14" Click="OptionsClick" Height="14" FontSize="7" FontWeight="Bold" Canvas.Left="-34" Canvas.Top="258">
+                <Button Tag="playing" Name="pause" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="14"  Height="14" FontSize="7" FontWeight="Bold" Canvas.Left="-34" Canvas.Top="258">
                     <ContentControl>
                         <Image Name="pauseIcon" Width="10" Height="10" Source="/Images/PauseIcon.png"/>
                     </ContentControl>
                 </Button>
+                <Button Tag="playing" Name="play" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="14"  Height="14" FontSize="7" FontWeight="Bold" Canvas.Left="-20" Canvas.Top="258">
+                    <ContentControl>
+                        <Image Name="playIcon" Width="10" Height="10" Source="/Images/PlayIcon.png"/>
+                    </ContentControl>
+                </Button>
 
+                
 
                 <Canvas.Triggers>
+                    <EventTrigger SourceName="pause" RoutedEvent="Button.Click">
+                        <PauseStoryboard BeginStoryboardName="Animation1"/>
+                    </EventTrigger>
+                    <EventTrigger SourceName="play" RoutedEvent="Button.Click">
+                        <ResumeStoryboard BeginStoryboardName="Animation1"/>
+                    </EventTrigger>
+                   
                     <EventTrigger RoutedEvent="Button.Click" SourceName="startResetButton">
-                        <BeginStoryboard>
+                        <BeginStoryboard Name ="Animation1">
                             <Storyboard Name = "Animation" Storyboard.TargetProperty="(Canvas.Left)">
                                 <DoubleAnimation Storyboard.TargetName="img2" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
                                 <DoubleAnimation Storyboard.TargetName="img3" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>

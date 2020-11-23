@@ -35,6 +35,7 @@ namespace KinectMathGames
         private Rect recCur = new Rect();
         private Rect gat = new Rect();
         private Rect intRec = new Rect(132, 0, 20, 283);
+        private Rect finishRec = new Rect(-159, 0, 20, 283);
         private DispatcherTimer dispatcherTimer = new DispatcherTimer();
         Storyboard myStoryboard;
 
@@ -76,14 +77,15 @@ namespace KinectMathGames
                         txtscore.Content = "Score: " + score;
                     }
 
-                    if (x.Name == "img20" && Canvas.GetLeft(x) == -160)
-                    {
-                        FinalScore.Content = score;
-                        congrats.Visibility = Visibility.Visible;
-                    }
+                    
                 }
- 
-                
+                if (x.Name == "img20" && finishRec.IntersectsWith(gat))
+                {
+                    FinalScore.Content = score;
+                    congrats.Visibility = Visibility.Visible;
+                }
+
+
             }
 
         }
@@ -120,22 +122,22 @@ namespace KinectMathGames
             this.Close();
         }
 
-        private void OptionsClick(object sender, RoutedEventArgs e)
+        /*private void OptionsClick(object sender, RoutedEventArgs e)
         {
             String state = optionsButton.Tag.ToString();
             if (state == "playing")
             {
                 optionsButton.Tag = "paused";
-                pauseIcon.Source = (ImageSource)FindResource("PlayIcon");
+                //pauseIcon.Source = (ImageSource)FindResource("PlayIcon");
                 Animation.Stop();
             }
             else
             {
                 optionsButton.Tag = "playing";
-                pauseIcon.Source = (ImageSource)FindResource("PauseIcon");
+                //pauseIcon.Source = (ImageSource)FindResource("PauseIcon");
                 Animation.Resume();
             }
-        }
+        }*/
 
         private void StartResetClick(object sender, RoutedEventArgs e)
         {
