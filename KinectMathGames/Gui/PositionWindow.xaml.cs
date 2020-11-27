@@ -52,7 +52,7 @@ namespace KinectMathGames
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
+            //Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
             //Canvas.SetTop(curRec, -scale + (kinect.zPosition * scale));
             foreach (var x in MyCanvas.Children.OfType<Image>()) {
                
@@ -73,12 +73,17 @@ namespace KinectMathGames
                         {
                             score++;
                             x.Tag = "locked";
+                            x.Source = (ImageSource)FindResource("GreenGateT");
                         }
                         txtscore.Content = "Score: " + score;
-                    }
-
-                    
+                    }                   
                 }
+
+                if(Canvas.GetLeft(x) < 140 && (string)x.Tag != "locked")
+                {
+                    x.Source = (ImageSource)FindResource("../Images/RedGateT");
+                }
+
                 if (x.Name == "img20" && finishRec.IntersectsWith(gat))
                 {
                     FinalScore.Content = score;
@@ -142,6 +147,7 @@ namespace KinectMathGames
         private void StartResetClick(object sender, RoutedEventArgs e)
         {
             congrats.Visibility = Visibility.Hidden;
+            instructions.Visibility = Visibility.Hidden;
             FinalScore.Content = "";
             String state = (sender as Button).Tag.ToString();
             if (state == "Start")
