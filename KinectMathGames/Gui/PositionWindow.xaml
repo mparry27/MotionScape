@@ -8,18 +8,44 @@
         Title="PositionWindow" Height="450" Width="800" WindowStartupLocation="CenterOwner" WindowState="Maximized">
     <Window.Resources >
         <ResourceDictionary >
-            <ImageSource x:Key="SettingsIcon">/Images/SettingsIcon.png</ImageSource>
-            <ImageSource x:Key="PauseIcon">/Images/PauseIcon.png</ImageSource>
-            <ImageSource x:Key="PlayIcon">/Images/PlayIcon.png</ImageSource>
+            <ImageSource x:Key="gateGreen">/Images/GreenGateT.png</ImageSource>
+            <ImageSource x:Key="gateRed">/Images/RedGateT.png</ImageSource>
+            <ImageSource x:Key="gateYellow">/Images/YellowGateT.png</ImageSource>            
         </ResourceDictionary>
     </Window.Resources>
     <Viewbox>
         <Grid>
             <Image Source="../Images/Graph.jpg" Opacity="0"/>
-            <Line X1="32" X2="273" Y1="147.5" Y2="147.5" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1"/>
-            <Line X1="152.5" X2="152.5" Y1="26" Y2="267" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1"/>
+            <Line X1="32" X2="273" Y1="147.5" Y2="147.5" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="152.5" X2="152.5" Y1="28" Y2="268" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+
+            <Line X1="142" X2="162" Y1="128" Y2="128" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="108" Y2="108" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="88" Y2="88" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="68" Y2="68" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="48" Y2="48" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="28" Y2="28" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="168" Y2="168" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="188" Y2="188" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="208" Y2="208" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="228" Y2="228" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="248" Y2="248" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="142" X2="162" Y1="268" Y2="268" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="132.5" X2="132.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="112.5" X2="112.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="92.5" X2="92.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="72.5" X2="72.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="52.5" X2="52.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="32.5" X2="32.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="172.5" X2="172.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="192.5" X2="192.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="212.5" X2="212.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="232.5" X2="232.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="252.5" X2="252.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+            <Line X1="272.5" X2="272.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
+
             <Canvas Name="MyCanvas" Focusable="True" >
-                <Ellipse Name="cursor" Tag="cursor" Width="20" Height="20" Margin="0" Canvas.Left="142" Canvas.Top="138">
+                <Ellipse Name="cursor" Tag="cursor" Width="20" Height="20" Margin="0" Canvas.Left="142" Canvas.Top="138" Panel.ZIndex="1" >
                     <Ellipse.Fill>
                         <SolidColorBrush Color="#7FE22B2B" />
                     </Ellipse.Fill>
@@ -62,7 +88,7 @@
                     </ContentControl>
                 </Button>
 
-                
+
 
                 <Canvas.Triggers>
                     <EventTrigger SourceName="pause" RoutedEvent="Button.Click">
@@ -71,7 +97,7 @@
                     <EventTrigger SourceName="play" RoutedEvent="Button.Click">
                         <ResumeStoryboard BeginStoryboardName="Animation1"/>
                     </EventTrigger>
-                   
+
                     <EventTrigger RoutedEvent="Button.Click" SourceName="startResetButton">
                         <BeginStoryboard Name ="Animation1">
                             <Storyboard Name = "Animation" Storyboard.TargetProperty="(Canvas.Left)">
@@ -134,7 +160,7 @@
                     </Run.Background>
                 </Run></TextBlock>
 
-            <TextBlock x:Name="instructions" Margin="-100,54,110,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="163" FontSize="8.5" RenderTransformOrigin="-0.043,1.625" TextAlignment="Justify"><Run Text="&#x9;              &#x9;          ">
+            <TextBlock x:Name="instructions" Margin="-110,46,206,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="163" FontSize="6.5" RenderTransformOrigin="-0.043,1.625" TextAlignment="Justify"><Run Text="&#x9;              &#x9;          ">
                     <Run.Background>
                         <ImageBrush/>
                     </Run.Background>

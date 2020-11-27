@@ -52,8 +52,7 @@ namespace KinectMathGames
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
-            //Canvas.SetTop(curRec, -scale + (kinect.zPosition * scale));
+            Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
             foreach (var x in MyCanvas.Children.OfType<Image>()) {
                
                 gat = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x)+52, 40, 30);
@@ -73,7 +72,7 @@ namespace KinectMathGames
                         {
                             score++;
                             x.Tag = "locked";
-                            x.Source = (ImageSource)FindResource("GreenGateT");
+                            x.Source = (ImageSource)FindResource("gateGreen");
                         }
                         txtscore.Content = "Score: " + score;
                     }                   
@@ -81,7 +80,7 @@ namespace KinectMathGames
 
                 if(Canvas.GetLeft(x) < 140 && (string)x.Tag != "locked")
                 {
-                    x.Source = (ImageSource)FindResource("../Images/RedGateT");
+                    x.Source = (ImageSource)FindResource("gateRed");
                 }
 
                 if (x.Name == "img20" && finishRec.IntersectsWith(gat))
@@ -127,23 +126,6 @@ namespace KinectMathGames
             this.Close();
         }
 
-        /*private void OptionsClick(object sender, RoutedEventArgs e)
-        {
-            String state = optionsButton.Tag.ToString();
-            if (state == "playing")
-            {
-                optionsButton.Tag = "paused";
-                //pauseIcon.Source = (ImageSource)FindResource("PlayIcon");
-                Animation.Stop();
-            }
-            else
-            {
-                optionsButton.Tag = "playing";
-                //pauseIcon.Source = (ImageSource)FindResource("PauseIcon");
-                Animation.Resume();
-            }
-        }*/
-
         private void StartResetClick(object sender, RoutedEventArgs e)
         {
             congrats.Visibility = Visibility.Hidden;
@@ -163,6 +145,7 @@ namespace KinectMathGames
                 {
                     x.Tag = "unLocked";
                 }
+                x.Source = (ImageSource)FindResource("gateYellow");
             }
         }
 
