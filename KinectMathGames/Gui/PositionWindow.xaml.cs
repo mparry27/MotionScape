@@ -52,7 +52,7 @@ namespace KinectMathGames
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Canvas.SetTop(cursor, -scale + (kinect.zPosition * scale));
+            Canvas.SetTop(cursor, -scale + (kinect.ZPosition * scale));
             foreach (var x in MyCanvas.Children.OfType<Image>()) {
                
                 gat = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x)+52, 40, 30);

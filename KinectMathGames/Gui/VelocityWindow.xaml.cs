@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Microsoft.Kinect;
 using KinectMathGames.Domain;
-
+using KinectMathGames.Gui;
 
 namespace KinectMathGames
 {
@@ -30,12 +30,12 @@ namespace KinectMathGames
         DispatcherTimer gameTimer = new DispatcherTimer();
         int score = 0;
         double scale = 500;
-        double speed = 10;
+        double speed = 15;
+        int rounds = 20;
         Kinect sensor = new Kinect();
         Random rand = new Random(DateTime.Now.Millisecond);
         Polygon topTriangle;
         Polygon bottomTriangle;
-        Line previousGate;
         SolidColorBrush yellowFill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
         SolidColorBrush redFill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
         SolidColorBrush greenFill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
@@ -50,7 +50,7 @@ namespace KinectMathGames
 
         private void MainEvenTimer(object sender, EventArgs e)
         {
-            Canvas.SetTop(rec1, 470 + (sensor.zVelocity * -scale)); // get the velocity for user
+            Canvas.SetTop(rec1, 470 + (sensor.ZVelocity * -scale)); // get the velocity for user
             playerHitLine.X1 = Canvas.GetLeft(rec1);
             playerHitLine.Y1 = Canvas.GetTop(rec1) + 30;
             playerHitLine.X2 = Canvas.GetLeft(rec1) + 60;
@@ -58,7 +58,7 @@ namespace KinectMathGames
 
             if (PauseButton.Content.ToString() == "Pause")
             {
-                if (score > 19)
+                if (score >= rounds)
                 {
                     EndGame();
                     return;
@@ -124,15 +124,15 @@ namespace KinectMathGames
                         topTriangle.Fill = yellowFill;
                         bottomTriangle.Fill = yellowFill;
                     }
-                    if (gate.X1 >= 500-speed && gate.X1 <= 500+speed)
+                    if (gate.X1 >= 500 - speed && gate.X1 <= 500 + speed)
                     {
+
                         if (IsIntersecting(playerHitLine, gate)) // if the Vbox hits gatebox logic then increment score
                         {
-                            if (previousGate != gate)
+                            if (topTriangle.Fill == yellowFill)
                             {
                                 score++;
                                 txtscore.Text = "Score: " + score;
-                                previousGate = gate;
                                 topTriangle.Fill = greenFill;
                                 bottomTriangle.Fill = greenFill;
                             }
@@ -143,12 +143,6 @@ namespace KinectMathGames
                             bottomTriangle.Fill = redFill;
                         }
                     }
-
-                    if(gate.X1 < 500 && topTriangle.Fill == yellowFill)
-                    {
-                        Console.WriteLine(gate.ToString());
-                    }
-
                 }
             }
         }
@@ -243,17 +237,24 @@ namespace KinectMathGames
 
         private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
-            if(PauseButton.Content.ToString() == "Pause")
+            if (PauseButton.Content.ToString() == "Settings")
+            {
+                var dlg = new VelocitySettingsDialog { Owner = this };
+                dlg.ShowDialog();
+                if (dlg.DialogResult == true)
+                {
+                    speed = (int)dlg.sldrSpeed.Value;
+                    rounds = int.Parse(dlg.txtRounds.Text);
+                }
+            }
+            else if (PauseButton.Content.ToString() == "Pause")
             {
                 PauseButton.Content = "Resume";
-            } else if (PauseButton.Content.ToString() == "Resume")
+            }
+            else if (PauseButton.Content.ToString() == "Resume")
             {
                 PauseButton.Content = "Pause";
-            } else
-            {
-                //Settings
             }
-
         }
     }
 }

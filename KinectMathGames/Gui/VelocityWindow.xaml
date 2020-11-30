@@ -64,7 +64,7 @@
                 </Run></TextBlock>
             <TextBlock x:Name="WinText" Margin="5,21,110,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" FontSize="6" RenderTransformOrigin="-0.043,1.625"/>
             <Viewbox Width="100" Height="100" Margin="133,21,5,5">
-                <Canvas Name="MyCanvas" Width="1000" Height="1000" Focusable="True" ClipToBounds="True">
+                <Canvas Name="MyCanvas" Width="1000" Height="1000" Focusable="True" ClipToBounds="False">
                     <Canvas>
                         <Line X1="0" X2="1000" Y1="500" Y2="500" Stroke="Black" StrokeThickness="10" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
                         <Line X1="500" X2="500" Y1="0" Y2="1000" Stroke="Black" StrokeThickness="10" SnapsToDevicePixels="True" Panel.ZIndex="1"/>

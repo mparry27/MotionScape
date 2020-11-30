@@ -81,10 +81,17 @@
     <Compile Include="Gui\GraphSettingsDialog.xaml.cs">
       <DependentUpon>GraphSettingsDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gui\VelocitySettingsDialog.xaml.cs">
+      <DependentUpon>VelocitySettingsDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gui\VelocityWindow.xaml.cs">
       <DependentUpon>VelocityWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Gui\GraphSettingsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Gui\VelocitySettingsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -59,8 +59,8 @@ namespace KinectMathGames.Gui
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            double playerYPos = -75 + (sensor.zPosition * scale);
-            double playerXPos = 50 + (sensor.xPosition * scale);
+            double playerYPos = -75 + (sensor.ZPosition * scale);
+            double playerXPos = 50 + (sensor.XPosition * scale);
             Canvas.SetTop(rec1, playerYPos);
             Canvas.SetLeft(rec1, playerXPos);
 

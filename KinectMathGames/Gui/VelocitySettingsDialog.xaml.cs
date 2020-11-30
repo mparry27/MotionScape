@@ -17,9 +17,9 @@ namespace KinectMathGames.Gui
     /// <summary>
     /// Interaction logic for GraphSettingsDialog.xaml
     /// </summary>
-    public partial class VelocitySettingsDialog : Window
+    public partial class GraphSettingsDialog : Window
     {
-        public VelocitySettingsDialog()
+        public GraphSettingsDialog()
         {
             InitializeComponent();
         }
