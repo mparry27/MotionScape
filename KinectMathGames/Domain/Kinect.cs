@@ -26,7 +26,7 @@ namespace KinectMathGames.Domain
         private float xVelAvg = 0;
         private float velGate = 0.05F;
         private int velAvgCount = 0;
-        private int velAvgCap = 2;
+        private int velAvgCap = 3;
         private enum Mode { SYNC, AVERAGE, MIXED }
         private Mode velocityMode = Mode.AVERAGE;
 
