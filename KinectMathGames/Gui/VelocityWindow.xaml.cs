@@ -30,7 +30,7 @@ namespace KinectMathGames
         DispatcherTimer gameTimer = new DispatcherTimer();
         int score = 0;
         double scale = 500;
-        double speed = 15;
+        double speed = 8;
         int rounds = 20;
         Kinect sensor = new Kinect();
         Random rand = new Random(DateTime.Now.Millisecond);

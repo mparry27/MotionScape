@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinectMathGames.Gui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="MotionScape" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Viewbox>
         <Grid Height="560" Width="800">
             <Label Content="MotionScape" FontWeight="Bold" FontSize="128" FontFamily="Microsoft YaHei UI Light" Margin="0,0,0,360" HorizontalAlignment="Center" VerticalAlignment="Center" Height="159"/>

@@ -2,7 +2,8 @@
         xmlns:local="clr-namespace:KinectMathGames"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Settings" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner">
+        Title="Graph Game Settings" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner"
+        Icon="../Images/SettingsIcon.png">
     <Grid Margin="15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />

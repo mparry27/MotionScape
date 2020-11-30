@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinectMathGames.Gui"
         mc:Ignorable="d"
-        Title="Graph" Height="450" Width="800" WindowStartupLocation="CenterOwner" MinWidth="650" MinHeight="400" WindowState="Maximized">
+        Title="Graph Game" Height="450" Width="800" WindowStartupLocation="CenterOwner" MinWidth="650" MinHeight="400" WindowState="Maximized">
     <Window.Resources >
         <ResourceDictionary >
             <ImageSource x:Key="SettingsIcon">/Images/SettingsIcon.png</ImageSource>
