@@ -197,16 +197,16 @@ namespace KinectMathGames.Gui
             //Update function label
             pointSlopeLbl.Text = "(y ";
             if ((5-(pointY / 10)) < 0)
-                pointSlopeLbl.Text += "- ";
-            else
                 pointSlopeLbl.Text += "+ ";
+            else
+                pointSlopeLbl.Text += "- ";
             pointSlopeLbl.Text += Math.Abs(5-(pointY / 10)) + ") = ";
             pointSlopeLbl.Text +=(slopeRise/10) + "/" + (slopeRun/10);
             pointSlopeLbl.Text += "(x ";
             if (((pointX / 10) - 5) < 0)
-                pointSlopeLbl.Text += "- ";
-            else
                 pointSlopeLbl.Text += "+ ";
+            else
+                pointSlopeLbl.Text += "- ";
             pointSlopeLbl.Text += Math.Abs((pointX / 10) - 5) + ")";
         }
 
@@ -222,7 +222,10 @@ namespace KinectMathGames.Gui
             String state = (sender as Button).Content.ToString();
             if(state == "Start")
             {
-                StartGame();
+                if (sensor.isReady)
+                    StartGame();
+                else
+                    sensor.startKinect();
             } 
             else
             {

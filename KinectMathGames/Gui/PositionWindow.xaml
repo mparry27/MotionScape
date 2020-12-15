@@ -10,157 +10,17 @@
         <ResourceDictionary >
             <ImageSource x:Key="gateGreen">/Images/GreenGateT.png</ImageSource>
             <ImageSource x:Key="gateRed">/Images/RedGateT.png</ImageSource>
-            <ImageSource x:Key="gateYellow">/Images/YellowGateT.png</ImageSource>            
+            <ImageSource x:Key="gateYellow">/Images/YellowGateT.png</ImageSource>
         </ResourceDictionary>
     </Window.Resources>
     <Viewbox>
-        <Grid>
-            <Image Source="../Images/Graph.jpg" Opacity="0"/>
-            <Line X1="32" X2="273" Y1="147.5" Y2="147.5" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="152.5" X2="152.5" Y1="28" Y2="268" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-
-            <Line X1="142" X2="162" Y1="128" Y2="128" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="108" Y2="108" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="88" Y2="88" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="68" Y2="68" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="48" Y2="48" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="28" Y2="28" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="168" Y2="168" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="188" Y2="188" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="208" Y2="208" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="228" Y2="228" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="248" Y2="248" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="142" X2="162" Y1="268" Y2="268" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="132.5" X2="132.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="112.5" X2="112.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="92.5" X2="92.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="72.5" X2="72.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="52.5" X2="52.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="32.5" X2="32.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="172.5" X2="172.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="192.5" X2="192.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="212.5" X2="212.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="232.5" X2="232.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="252.5" X2="252.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-            <Line X1="272.5" X2="272.5" Y1="138" Y2="158" Stroke="Black" SnapsToDevicePixels="false" Panel.ZIndex="1" />
-
-            <Canvas Name="MyCanvas" Focusable="True" >
-                <Ellipse Name="cursor" Tag="cursor" Width="20" Height="20" Margin="0" Canvas.Left="142" Canvas.Top="138" Panel.ZIndex="1" >
-                    <Ellipse.Fill>
-                        <SolidColorBrush Color="#7FE22B2B" />
-                    </Ellipse.Fill>
-                </Ellipse>
-
-                <Image Name="img1" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate1" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img2" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate2" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img3" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate3" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img4" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate4" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img5" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate5" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img6" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate6" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img7" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate7" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img8" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate8" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img9" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate9" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img10" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate10" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img11" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate11" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img12" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate12" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img13" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate13" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img14" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate14" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img15" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate15" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img16" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate16" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img17" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate17" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img18" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate18" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img19" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate19" Canvas.Left="453" Canvas.Top="84" RenderTransformOrigin="1.517,0.432"  />
-                <Image Name="img20" Height="124" Width="40" Source="../Images/YellowGateT.png" Tag="Gate20" Canvas.Left="453" RenderTransformOrigin="1.517,0.432" Canvas.Top="84"  />
-                <Label Name="txtscore" FontSize="18" FontWeight="Bold" Content="Score: 0" RenderTransformOrigin="5.441,1.98" Canvas.Top="20" Canvas.Left="-110"/>
-                <Label Name="Position" FontSize="18" FontWeight="ExtraBold" Content="Position Game" Canvas.Left="-110"/>
-                <Label Name="FinalScore" FontSize="10" FontWeight="Bold" Content="0" RenderTransformOrigin="5.441,1.98" Canvas.Top="98.899999" Canvas.Left="-47"/>
-
-                <Button Name="startResetButton" Content="Start" Tag="Start" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="46"  Height="14" FontSize="7" FontWeight="Bold" Click="StartResetClick" Canvas.Left="-79" Canvas.Top="258"/>
-                <Button Name="quitButton" Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="25" Click="QuitClick" Height="14" FontSize="7" FontWeight="Bold" Canvas.Left="-103" Canvas.Top="258"/>
-                <Button Tag="playing" Name="pause" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="14"  Height="14" FontSize="7" FontWeight="Bold" Canvas.Left="-34" Canvas.Top="258">
-                    <ContentControl>
-                        <Image Name="pauseIcon" Width="10" Height="10" Source="/Images/PauseIcon.png"/>
-                    </ContentControl>
-                </Button>
-                <Button Tag="playing" Name="play" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="14"  Height="14" FontSize="7" FontWeight="Bold" Canvas.Left="-20" Canvas.Top="258">
-                    <ContentControl>
-                        <Image Name="playIcon" Width="10" Height="10" Source="/Images/PlayIcon.png"/>
-                    </ContentControl>
-                </Button>
-
-
-
-                <Canvas.Triggers>
-                    <EventTrigger SourceName="pause" RoutedEvent="Button.Click">
-                        <PauseStoryboard BeginStoryboardName="Animation1"/>
-                    </EventTrigger>
-                    <EventTrigger SourceName="play" RoutedEvent="Button.Click">
-                        <ResumeStoryboard BeginStoryboardName="Animation1"/>
-                    </EventTrigger>
-
-                    <EventTrigger RoutedEvent="Button.Click" SourceName="startResetButton">
-                        <BeginStoryboard Name ="Animation1">
-                            <Storyboard Name = "Animation" Storyboard.TargetProperty="(Canvas.Left)">
-                                <DoubleAnimation Storyboard.TargetName="img2" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img3" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img4" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img5" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img6" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img7" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img8" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img9" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img10" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img11" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img12" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img13" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img14" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img15" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img16" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img17" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img18" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img19" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img20" From="454" To="453" SpeedRatio=".15" AutoReverse="False"/>
-
-                                <DoubleAnimation Storyboard.TargetName="img1" From="453" To="-160" SpeedRatio=".15" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img2" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:02" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img3" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:04" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img4" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:06" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img5" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:08" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img6" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:10" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img7" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:12" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img8" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:14" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img9" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:16" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img10" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:18" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img11" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:20" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img12" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:22" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img13" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:24" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img14" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:26" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img15" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:28" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img16" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:30" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img17" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:32" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img18" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:34" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img19" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:36" AutoReverse="False"/>
-                                <DoubleAnimation Storyboard.TargetName="img20" From="453" To="-160" SpeedRatio=".15" BeginTime="0:0:38" AutoReverse="False"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Canvas.Triggers>
-            </Canvas>
-            <TextBlock x:Name="congrats" HorizontalAlignment="Left" Margin="-100,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="95" FontSize="10.5"><Run Text="&#x9;              &#x9;          ">
-                    <Run.Background>
-                        <ImageBrush/>
-                    </Run.Background>
-                </Run><Run FontWeight="Bold" Text="Congratulations!">
-                    <Run.Background>
-                        <ImageBrush/>
-                    </Run.Background>
-                </Run><LineBreak/><Run FontWeight="Bold" Text="You scored         point(s)!">
-                    <Run.Background>
-                        <ImageBrush/>
-                    </Run.Background>
-                </Run></TextBlock>
-
-            <TextBlock x:Name="instructions" Margin="-110,46,206,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="163" FontSize="6.5" RenderTransformOrigin="-0.043,1.625" TextAlignment="Justify"><Run Text="&#x9;              &#x9;          ">
+        <Grid Width="238" Height="126">
+            <TextBlock Name="txtscore" FontWeight="Bold" Text="Score: 0" TextAlignment="Center" Typography.Fraction="Stacked" FontSize="10" Margin="133,5,5,110"/>
+            <TextBlock Name="PositionText" FontWeight="ExtraBold" Text="Position Game" TextAlignment="Center" Typography.Fraction="Stacked" FontSize="10" Margin="5,5,110,107" Grid.ColumnSpan="2"/>
+            <Button Name="QuitButton" Content="Quit" Margin="5,108,0,5" Click="BackButton_Click" FontSize="7" FontWeight="Bold" HorizontalAlignment="Left" Width="27"/>
+            <Button Name="StartResetButton" Content="Start" HorizontalAlignment="Right" Margin="0,108,149,5" Width="52" Click="StartResetButton_Click" FontSize="7" FontWeight="Bold"/>
+            <Button Name="PauseButton" Content="Settings" HorizontalAlignment="Right" Margin="0,108,110,5" Width="34" Click="PauseButton_Click" FontSize="7" FontWeight="Bold"/>
+            <TextBlock x:Name="instructions" Margin="5,21,110,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="78" FontSize="4.5" RenderTransformOrigin="-0.043,1.625" TextAlignment="Justify"><Run Text="&#x9;              &#x9;          ">
                     <Run.Background>
                         <ImageBrush/>
                     </Run.Background>
@@ -196,13 +56,66 @@
                     <Run.Background>
                         <ImageBrush/>
                     </Run.Background>
-                </Run><LineBreak/><Run Text="■   The game ends when 20 gates have passed.">
+                </Run><LineBreak/><Run Text="■   The speed of the cursor depends on how fast you go      ">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="■   The game ends when you get the cursor through">
+                    <Run.Background>
+                        <ImageBrush/>
+                    </Run.Background>
+                </Run><LineBreak/><Run Text="       the gate successfully 20 times. ">
                     <Run.Background>
                         <ImageBrush/>
                     </Run.Background>
                 </Run></TextBlock>
+            <TextBlock x:Name="WinText" Margin="5,21,110,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" FontSize="6" RenderTransformOrigin="-0.043,1.625"/>
+            <Viewbox Width="100" Height="100" Margin="133,21,5,5">
+                <Canvas Name="MyCanvas" Width="1000" Height="1000" Focusable="True" ClipToBounds="True">
+                    <Canvas>
+                        <Line X1="0" X2="1000" Y1="500" Y2="500" Stroke="Black" StrokeThickness="10" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="500" X2="500" Y1="0" Y2="1000" Stroke="Black" StrokeThickness="10" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="0" X2="0" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="100" X2="100" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="200" X2="200" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="300" X2="300" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="400" X2="400" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="600" X2="600" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="700" X2="700" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="800" X2="800" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="900" X2="900" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="1000" X2="1000" Y1="480" Y2="520" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
 
+                        <Line X1="480" X2="520" Y1="0" Y2="0" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="480" X2="520" Y1="100" Y2="100" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="480" X2="520" Y1="200" Y2="200" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="480" X2="520" Y1="300" Y2="300" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="480" X2="520" Y1="400" Y2="400" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="480" X2="520" Y1="600" Y2="600" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="480" X2="520" Y1="700" Y2="700" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="480" X2="520" Y1="800" Y2="800" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="480" X2="520" Y1="900" Y2="900" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Line X1="480" X2="520" Y1="1000" Y2="1000" Stroke="Black" StrokeThickness="5" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
+                        <Label Content="-4" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="404" Canvas.Top="855"/>
+                        <Label Content="4" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="428" Canvas.Top="57"/>
+                        <Label Content="2" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="427" Canvas.Top="256"/>
+                        <Label Content="-2" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="404" Canvas.Top="655"/>
+                    </Canvas>
+                    <Canvas>
+                        <Ellipse Name="rec1" Width="60" Height="60" Canvas.Left="470" Canvas.Top="470" SnapsToDevicePixels="True" Panel.ZIndex="3" Fill="#FFFF6600"/>
+                        <Line Name="playerHitLine" X1="470" X2="530" Y1="500" Y2="500" SnapsToDevicePixels="True" Panel.ZIndex="4" Stretch="Fill" Canvas.Left="467" Canvas.Top="497"/>
+                    </Canvas>
+                    <Line Name="obs1HitLine" Tag="obs1" X1="-1000" X2="-1000" Y1="425" Y2="575" SnapsToDevicePixels="True" Stretch="Fill"/>
+                    <Polygon Name="obs1Top" Points="0,0 25,50 50,0" Fill="Yellow" Canvas.Left="1949" Canvas.Top="602" Stroke="Black" StrokeThickness="5" />
+                    <Polygon Name="obs1Bottom" Points="0,50 25,0 50,50" Fill="Yellow" Canvas.Left="1964" Canvas.Top="856" Stroke="Black" StrokeThickness="5"/>
+                    <Line Name="obs2HitLine" Tag="obs2" X1="-1000" X2="-1000" Y1="425" Y2="575" SnapsToDevicePixels="True" Stretch="Fill"/>
+                    <Polygon Name="obs2Top" Points="0,0 25,50 50,0" Fill="Yellow" Canvas.Left="1413" Canvas.Top="588" Stroke="Black" StrokeThickness="5"/>
+                    <Polygon Name="obs2Bottom" Points="0,50 25,0 50,50" Fill="Yellow" Canvas.Left="1427" Canvas.Top="822" Stroke="Black" StrokeThickness="5"/>
+                    <Line Name="obs3HitLine" Tag="obs3" X1="-1000" X2="-1000" Y1="425" Y2="575" SnapsToDevicePixels="True"  Stretch="Fill"/>
+                    <Polygon Name="obs3Top" Points="0,0 25,50 50,0" Fill="Yellow" Canvas.Left="1773" Canvas.Top="352" Stroke="Black" StrokeThickness="5"/>
+                    <Polygon Name="obs3Bottom" Points="0,50 25,0 50,50" Fill="Yellow" Canvas.Left="1771" Canvas.Top="556" Stroke="Black" StrokeThickness="5"/>
+                </Canvas>
+            </Viewbox>
         </Grid>
     </Viewbox>
-
 </Window>

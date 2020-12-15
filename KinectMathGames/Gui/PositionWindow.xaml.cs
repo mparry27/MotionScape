@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
+using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,144 +12,255 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Microsoft.Kinect;
 using KinectMathGames.Domain;
-
+using KinectMathGames.Gui;
 
 namespace KinectMathGames
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for position.xaml
     /// </summary>
     public partial class PositionWindow : Window
     {
-        private Kinect kinect = new Kinect();
-        private static double scale = 200;
-        private int score = 0;
-        private PositionLogic pLogic = new PositionLogic();
-        private double retDouble;
-        private Rect recCur = new Rect();
-        private Rect gat = new Rect();
-        private Rect intRec = new Rect(132, 0, 20, 283);
-        private Rect finishRec = new Rect(-159, 0, 20, 283);
-        private DispatcherTimer dispatcherTimer = new DispatcherTimer();
-        Storyboard myStoryboard;
+        //declare all variables
+        DispatcherTimer gameTimer = new DispatcherTimer();
+        int score = 0;
+        double scale = 500;
+        double speed = 8;
+        int rounds = 20;
+        Kinect sensor = new Kinect();
+        Random rand = new Random(DateTime.Now.Millisecond);
+        Polygon topTriangle;
+        Polygon bottomTriangle;
+        SolidColorBrush yellowFill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+        SolidColorBrush redFill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+        SolidColorBrush greenFill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
 
         public PositionWindow()
         {
             InitializeComponent();
-            myStoryboard = Animation;
-            dispatcherTimer.Tick += Timer_Tick;
-            dispatcherTimer.Interval = TimeSpan.FromMilliseconds(20);
-            dispatcherTimer.Start();
-            congrats.Visibility = Visibility.Hidden;
-            FinalScore.Content = "";
-
+            gameTimer.Tick += MainEvenTimer;
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+            gameTimer.Start();
         }
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            Canvas.SetTop(cursor, -scale + (kinect.ZPosition * scale));
-            foreach (var x in MyCanvas.Children.OfType<Image>()) {
-               
-                gat = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x)+52, 40, 30);
-                
 
-                if (Canvas.GetLeft(x) > 450)
+        private void MainEvenTimer(object sender, EventArgs e)
+        {
+            Canvas.SetTop(rec1, -500 + (sensor.ZPosition * scale)); // get the velocity for user
+            playerHitLine.X1 = Canvas.GetLeft(rec1);
+            playerHitLine.Y1 = Canvas.GetTop(rec1) + 30;
+            playerHitLine.X2 = Canvas.GetLeft(rec1) + 60;
+            playerHitLine.Y2 = Canvas.GetTop(rec1) + 30;
+
+            if (PauseButton.Content.ToString() == "Pause")
+            {
+                if (score >= rounds)
                 {
-                    Canvas.SetTop(x, pLogic.randomYCoord());                        
+                    EndGame();
+                    return;
                 }
 
-                if (intRec.IntersectsWith(gat))
+                foreach (var gate in MyCanvas.Children.OfType<Line>())
                 {
-                    recCur = new Rect(getCursorLeft(), getCursorTop(), 1, 20);
-                    if (recCur.IntersectsWith(gat) && pLogic.isInGate(getCursorTop(), Canvas.GetTop(x) + 45))
+                    switch (gate.Tag)
                     {
-                        if ((string)x.Tag != "locked") 
+                        case "obs1":
+                            topTriangle = obs1Top;
+                            bottomTriangle = obs1Bottom;
+
+                            gate.X1 -= speed;
+                            gate.X2 -= speed;
+
+                            Canvas.SetLeft(obs1Top, gate.X1 - 25);
+                            Canvas.SetTop(obs1Top, gate.Y1 - 30);
+                            Canvas.SetLeft(obs1Bottom, gate.X2 - 25);
+                            Canvas.SetTop(obs1Bottom, gate.Y1 + 130);
+                            Canvas.SetLeft(obs1HitLine, gate.X1);
+                            Canvas.SetTop(obs1HitLine, gate.Y1);
+
+                            break;
+                        case "obs2":
+                            topTriangle = obs2Top;
+                            bottomTriangle = obs2Bottom;
+
+                            gate.X1 -= speed;
+                            gate.X2 -= speed;
+
+                            Canvas.SetLeft(obs2Top, gate.X1 - 25);
+                            Canvas.SetTop(obs2Top, gate.Y1 - 30);
+                            Canvas.SetLeft(obs2Bottom, gate.X1 - 25);
+                            Canvas.SetTop(obs2Bottom, gate.Y1 + 130);
+                            Canvas.SetLeft(obs2HitLine, gate.X1);
+                            Canvas.SetTop(obs2HitLine, gate.Y1);
+
+                            break;
+                        case "obs3":
+                            topTriangle = obs3Top;
+                            bottomTriangle = obs3Bottom;
+
+                            gate.X1 -= speed;
+                            gate.X2 -= speed;
+
+                            Canvas.SetLeft(obs3Top, gate.X1 - 25);
+                            Canvas.SetTop(obs3Top, gate.Y1 - 30);
+                            Canvas.SetLeft(obs3Bottom, gate.X1 - 25);
+                            Canvas.SetTop(obs3Bottom, gate.Y1 + 130);
+                            Canvas.SetLeft(obs3HitLine, gate.X1);
+                            Canvas.SetTop(obs3HitLine, gate.Y1);
+
+                            break;
+                    }
+
+                    if (gate.X1 <= -50)
+                    {
+                        gate.X1 = 1500;
+                        gate.X2 = 1500;
+                        gate.Y1 = rand.Next(0, 800);
+                        gate.Y2 = gate.Y1 + 150;
+                        topTriangle.Fill = yellowFill;
+                        bottomTriangle.Fill = yellowFill;
+                    }
+                    if (gate.X1 >= 500 - speed && gate.X1 <= 500 + speed)
+                    {
+
+                        if (IsIntersecting(playerHitLine, gate)) // if the Vbox hits gatebox logic then increment score
                         {
-                            score++;
-                            x.Tag = "locked";
-                            x.Source = (ImageSource)FindResource("gateGreen");
+                            if (topTriangle.Fill == yellowFill)
+                            {
+                                score++;
+                                txtscore.Text = "Score: " + score;
+                                topTriangle.Fill = greenFill;
+                                bottomTriangle.Fill = greenFill;
+                            }
                         }
-                        txtscore.Content = "Score: " + score;
-                    }                   
+                        else
+                        {
+                            topTriangle.Fill = redFill;
+                            bottomTriangle.Fill = redFill;
+                        }
+                    }
                 }
-
-                if(Canvas.GetLeft(x) < 140 && (string)x.Tag != "locked")
-                {
-                    x.Source = (ImageSource)FindResource("gateRed");
-                }
-
-                if (x.Name == "img20" && finishRec.IntersectsWith(gat))
-                {
-                    FinalScore.Content = score;
-                    congrats.Visibility = Visibility.Visible;
-                }
-
-
             }
+        }
+
+        private bool IsIntersecting(Line line1, Line line2)
+        {
+            Point a = new Point(line1.X1, line1.Y1);
+            Point b = new Point(line1.X2, line1.Y2);
+            Point c = new Point(line2.X1, line2.Y1);
+            Point d = new Point(line2.X2, line2.Y2);
+            float denominator = (float)(((b.X - a.X) * (d.Y - c.Y)) - ((b.Y - a.Y) * (d.X - c.X)));
+            float numerator1 = (float)(((a.Y - c.Y) * (d.X - c.X)) - ((a.X - c.X) * (d.Y - c.Y)));
+            float numerator2 = (float)(((a.Y - c.Y) * (b.X - a.X)) - ((a.X - c.X) * (b.Y - a.Y)));
+
+            // Detect coincident lines (has a problem, read below)
+            if (denominator == 0) return numerator1 == 0 && numerator2 == 0;
+
+            float r = numerator1 / denominator;
+            float s = numerator2 / denominator;
+
+            return (r >= 0 && r <= 1) && (s >= 0 && s <= 1);
+        }
+
+        private void StartGame()
+        {
+            MyCanvas.Focus();
+            score = 0;
+            Canvas.SetTop(rec1, 470);
+            obs1HitLine.X1 = 1500;
+            obs1HitLine.X2 = 1500;
+            obs1HitLine.Y1 = rand.Next(0, 800);
+            obs1HitLine.Y2 = obs1HitLine.Y1 + 150;
+            obs2HitLine.X1 = 2000;
+            obs2HitLine.X2 = 2000;
+            obs2HitLine.Y1 = rand.Next(0, 800);
+            obs2HitLine.Y2 = obs2HitLine.Y1 + 150;
+            obs3HitLine.X1 = 2500;
+            obs3HitLine.X2 = 2500;
+            obs3HitLine.Y1 = rand.Next(0, 800);
+            obs3HitLine.Y2 = obs3HitLine.Y1 + 150;
+            gameTimer.Start();
 
         }
 
-        public double getCursorTop()
+        private void EndGame()
         {
-            foreach (var x in MyCanvas.Children.OfType<Ellipse>())
+            gameTimer.Stop();
+            instructions.Visibility = Visibility.Hidden;
+            txtscore.Text = "Total Score: " + score;
+            WinText.Text = "Congratulations ! \nYou WIN ! \nPress reset to play again.";
+        }
+
+        private void StartResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (StartResetButton.Content.ToString() == "Start")
             {
-                if ((string)x.Tag == "cursor")
+                if (sensor.isReady)
                 {
-                    retDouble = Canvas.GetTop(x);
-                    break;
+                    PauseButton.Content = "Pause";
+                    StartResetButton.Content = "Reset";
+                    StartGame();
                 }
+                else
+                    sensor.startKinect();
+
             }
-            return retDouble;
-        }
-        public double getCursorLeft()
-        {
-            foreach (var x in MyCanvas.Children.OfType<Ellipse>())
+            else
             {
-                if ((string)x.Tag == "cursor")
-                {
-                    retDouble = Canvas.GetLeft(x);
-                    break;
-                }
+                txtscore.Text = "Score: 0";
+                instructions.Visibility = Visibility.Visible;
+                StartResetButton.Content = "Start";
+                WinText.Text = String.Empty;
+                PauseButton.Content = "Settings";
+
+                Canvas.SetLeft(obs1Top, 1500);
+                Canvas.SetLeft(obs1Bottom, 1500);
+                Canvas.SetLeft(obs2Top, 1500);
+                Canvas.SetLeft(obs2Bottom, 1500);
+                Canvas.SetLeft(obs3Top, 1500);
+                Canvas.SetLeft(obs3Bottom, 1500);
+
+                obs1Top.Fill = yellowFill;
+                obs1Bottom.Fill = yellowFill;
+                obs2Top.Fill = yellowFill;
+                obs2Bottom.Fill = yellowFill;
+                obs3Top.Fill = yellowFill;
+                obs3Bottom.Fill = yellowFill;
             }
-            return retDouble;
+
         }
 
-        private void QuitClick(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.Show();
             this.Close();
         }
 
-        private void StartResetClick(object sender, RoutedEventArgs e)
+        private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
-            congrats.Visibility = Visibility.Hidden;
-            instructions.Visibility = Visibility.Hidden;
-            FinalScore.Content = "";
-            String state = (sender as Button).Tag.ToString();
-            if (state == "Start")
+            if (PauseButton.Content.ToString() == "Settings")
             {
-                startResetButton.Content = "Reset";
-            }
-            startResetButton.Tag = "Reset";
-            txtscore.Content = "Score: 0";
-            score = 0;
-            foreach (var x in MyCanvas.Children.OfType<Image>())
-            {
-                if ((string)x.Tag == "locked")
+                var dlg = new VelocitySettingsDialog { Owner = this };
+                dlg.ShowDialog();
+                if (dlg.DialogResult == true)
                 {
-                    x.Tag = "unLocked";
+                    speed = (int)dlg.sldrSpeed.Value;
+                    rounds = int.Parse(dlg.txtRounds.Text);
                 }
-                x.Source = (ImageSource)FindResource("gateYellow");
+            }
+            else if (PauseButton.Content.ToString() == "Pause")
+            {
+                PauseButton.Content = "Resume";
+            }
+            else if (PauseButton.Content.ToString() == "Resume")
+            {
+                PauseButton.Content = "Pause";
             }
         }
-
-        
-
     }
 }

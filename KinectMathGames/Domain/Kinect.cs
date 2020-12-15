@@ -26,9 +26,9 @@ namespace KinectMathGames.Domain
         private float xVelAvg = 0;
         private float velGate = 0.05F;
         private int velAvgCount = 0;
-        private int velAvgCap = 3;
+        private int velAvgCap = 2;
         private enum Mode { SYNC, AVERAGE, MIXED }
-        private Mode velocityMode = Mode.AVERAGE;
+        private Mode velocityMode = Mode.MIXED;
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String propertyName)
@@ -90,23 +90,25 @@ namespace KinectMathGames.Domain
 
         public Kinect()
         {
-            while(!isReady)
+            startKinect();
+        }
+
+        public void startKinect()
+        {
+            try
             {
-                try
+                if (KinectSensor.KinectSensors.Count > 0)
                 {
-                    if (KinectSensor.KinectSensors.Count > 0)
-                    {
-                        sensor = KinectSensor.KinectSensors[0];
-                        sensor.AllFramesReady += this.SensorAllFramesReady;
-                    }
-                    sensor.Start();
-                    sensor.SkeletonStream.Enable();
-                    isReady = true;
+                    sensor = KinectSensor.KinectSensors[0];
+                    sensor.AllFramesReady += this.SensorAllFramesReady;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                sensor.Start();
+                sensor.SkeletonStream.Enable();
+                isReady = true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Kinect not detected. Make sure the kinect is properly powered on and connected.");
             }
         }
 

@@ -64,7 +64,7 @@
                 </Run></TextBlock>
             <TextBlock x:Name="WinText" Margin="5,21,110,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" FontSize="6" RenderTransformOrigin="-0.043,1.625"/>
             <Viewbox Width="100" Height="100" Margin="133,21,5,5">
-                <Canvas Name="MyCanvas" Width="1000" Height="1000" Focusable="True" ClipToBounds="False">
+                <Canvas Name="MyCanvas" Width="1000" Height="1000" Focusable="True" ClipToBounds="True">
                     <Canvas>
                         <Line X1="0" X2="1000" Y1="500" Y2="500" Stroke="Black" StrokeThickness="10" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
                         <Line X1="500" X2="500" Y1="0" Y2="1000" Stroke="Black" StrokeThickness="10" SnapsToDevicePixels="True" Panel.ZIndex="1"/>
@@ -98,13 +98,13 @@
                         <Ellipse Name="rec1" Width="60" Height="60" Canvas.Left="470" Canvas.Top="470" SnapsToDevicePixels="True" Panel.ZIndex="3" Fill="#FFFF6600"/>
                         <Line Name="playerHitLine" X1="470" X2="530" Y1="500" Y2="500" SnapsToDevicePixels="True" Panel.ZIndex="4" Stretch="Fill" Canvas.Left="467" Canvas.Top="497"/>
                     </Canvas>
-                    <Line Name="obs1HitLine" Tag="obs1" X1="600" X2="600" Y1="425" Y2="575" SnapsToDevicePixels="True" Stretch="Fill"/>
+                    <Line Name="obs1HitLine" Tag="obs1" X1="-1000" X2="-1000" Y1="425" Y2="575" SnapsToDevicePixels="True" Stretch="Fill"/>
                     <Polygon Name="obs1Top" Points="0,0 25,50 50,0" Fill="Yellow" Canvas.Left="1949" Canvas.Top="602" Stroke="Black" StrokeThickness="5" />
                     <Polygon Name="obs1Bottom" Points="0,50 25,0 50,50" Fill="Yellow" Canvas.Left="1964" Canvas.Top="856" Stroke="Black" StrokeThickness="5"/>
-                    <Line Name="obs2HitLine" Tag="obs2" X1="700" X2="700" Y1="425" Y2="575" SnapsToDevicePixels="True" Stretch="Fill"/>
+                    <Line Name="obs2HitLine" Tag="obs2" X1="-1000" X2="-1000" Y1="425" Y2="575" SnapsToDevicePixels="True" Stretch="Fill"/>
                     <Polygon Name="obs2Top" Points="0,0 25,50 50,0" Fill="Yellow" Canvas.Left="1413" Canvas.Top="588" Stroke="Black" StrokeThickness="5"/>
                     <Polygon Name="obs2Bottom" Points="0,50 25,0 50,50" Fill="Yellow" Canvas.Left="1427" Canvas.Top="822" Stroke="Black" StrokeThickness="5"/>
-                    <Line Name="obs3HitLine" Tag="obs3" X1="800" X2="800" Y1="425" Y2="575" SnapsToDevicePixels="True"  Stretch="Fill"/>
+                    <Line Name="obs3HitLine" Tag="obs3" X1="-1000" X2="-1000" Y1="425" Y2="575" SnapsToDevicePixels="True"  Stretch="Fill"/>
                     <Polygon Name="obs3Top" Points="0,0 25,50 50,0" Fill="Yellow" Canvas.Left="1773" Canvas.Top="352" Stroke="Black" StrokeThickness="5"/>
                     <Polygon Name="obs3Bottom" Points="0,50 25,0 50,50" Fill="Yellow" Canvas.Left="1771" Canvas.Top="556" Stroke="Black" StrokeThickness="5"/>
                 </Canvas>

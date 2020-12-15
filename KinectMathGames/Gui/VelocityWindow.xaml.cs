@@ -29,7 +29,7 @@ namespace KinectMathGames
         //declare all variables
         DispatcherTimer gameTimer = new DispatcherTimer();
         int score = 0;
-        double scale = 500;
+        double scale = 750;
         double speed = 8;
         int rounds = 20;
         Kinect sensor = new Kinect();
@@ -199,9 +199,15 @@ namespace KinectMathGames
         {
             if(StartResetButton.Content.ToString() == "Start")
             {
-                PauseButton.Content = "Pause";
-                StartResetButton.Content = "Reset";
-                StartGame();
+                if (sensor.isReady)
+                {
+                    PauseButton.Content = "Pause";
+                    StartResetButton.Content = "Reset";
+                    StartGame();
+                }
+                else
+                    sensor.startKinect();
+
             }
             else
             {
